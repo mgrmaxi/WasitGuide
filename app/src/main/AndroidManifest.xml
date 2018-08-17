@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LocalsActivity" />
-        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".CouncilActivity"></activity>
     </application>
 
 </manifest>

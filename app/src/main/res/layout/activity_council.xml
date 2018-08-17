@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutUsActivity">
+    tools:context=".CouncilActivity">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -31,13 +31,14 @@
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="225dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="logo"
+                android:scaleType="fitStart"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-                app:srcCompat="@drawable/c4ilogo"
+                app:srcCompat="@drawable/kut"
                 tools:layout_editor_absoluteX="50dp" />
 
             <TextView
@@ -81,7 +82,7 @@
                 tools:layout_editor_absoluteY="344dp" />
 
             <ListView
-                android:id="@+id/staffList"
+                android:id="@+id/categoryList"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -91,5 +92,4 @@
                 tools:layout_editor_absoluteY="325dp" />
         </LinearLayout>
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

@@ -18,10 +18,8 @@ public class MainActivity extends AppCompatActivity {
         ImageButton getlocalsbtn = findViewById(R.id.getlocalsbtn);
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-//                Intent myIntent = new Intent( view.getContext(), LocalsActivity.class);
-//                startActivityForResult(myIntent,0);
 
-                Intent intent = new Intent(MainActivity.this, LocalsActivity.class);
+                Intent intent = new Intent(MainActivity.this, CouncilActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });

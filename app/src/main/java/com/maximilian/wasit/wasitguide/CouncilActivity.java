@@ -4,17 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class AboutUsActivity extends AppCompatActivity {
+public class CouncilActivity extends AppCompatActivity {
 
 
-    protected ListView staffList;
-    String[] staffNames ={"نائل فاضل",
+    protected ListView categoryList;
+    String[] catigoryNames ={"نائل فاضل",
             "",
             "",
             " ",
@@ -22,15 +21,17 @@ public class AboutUsActivity extends AppCompatActivity {
             " ",
 
     };
-    String[] job ={"التصميم والبرمجة",
-            "قواعد البيانات",
-            "قواعد البيانات",
-            "قواعد البيانات",
-            "قواعد البيانات",
-            "قواعد البيانات",
+
+    String[] catigorydiscrip ={"نائل فاضل",
+            "",
+            "",
+            " ",
+            " ",
+            " ",
 
     };
-    int[] localsImages ={R.drawable.s1,
+
+    int[] catigoryImages ={R.drawable.s1,
             R.drawable.s2,
             R.drawable.s3,
             R.drawable.s4,
@@ -42,14 +43,13 @@ public class AboutUsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_council);
 
 
 
-
-        staffList = findViewById(R.id.staffList);
-        AboutUsActivity.CustomAdapter customAdapter = new CustomAdapter();
-        staffList.setAdapter(customAdapter);
+        categoryList = findViewById(R.id.categoryList);
+        CouncilActivity.CustomAdapter customAdapter = new CustomAdapter();
+        categoryList.setAdapter(customAdapter);
 
 
 
@@ -61,7 +61,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return localsImages.length;
+            return catigoryImages.length;
         }
 
         @Override
@@ -83,12 +83,13 @@ public class AboutUsActivity extends AppCompatActivity {
             TextView Name =  view.findViewById(R.id.localNametext);
             TextView summry =  view.findViewById(R.id.summeryText);
 
-            image.setImageResource(localsImages[position]);
-            Name.setText(staffNames[position]);
-            summry.setText(job[position]);
+            image.setImageResource(catigoryImages[position]);
+            Name.setText(catigoryNames[position]);
+            summry.setText(catigorydiscrip[position]);
 
             return view;
         }
 
     }
-}
+
+    }
