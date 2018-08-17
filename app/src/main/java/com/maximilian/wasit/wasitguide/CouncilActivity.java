@@ -13,18 +13,22 @@ public class CouncilActivity extends AppCompatActivity {
 
 
     protected ListView categoryList;
-    String[] catigoryNames ={"نائل فاضل",
-            "",
-            "",
-            " ",
-            " ",
-            " ",
+    String[] catigoryNames ={"الدوائر والمؤسسات الحكومية",
+            "المستشفيات والمراكز الصحية",
+            "محطات الوقود والكراجات",
+            "الفنادق والمطاعم",
+            "المتنزهات العامة",
+            "الجامعات والمدارس",
+            "المناطق الاثرية والسياحية",
+            "المزارات والمراكز الدينية",
 
     };
 
     String[] catigorydiscrip ={"نائل فاضل",
             "",
             "",
+            " ",
+            " ",
             " ",
             " ",
             " ",
@@ -35,6 +39,9 @@ public class CouncilActivity extends AppCompatActivity {
             R.drawable.s2,
             R.drawable.s3,
             R.drawable.s4,
+            R.drawable.s5,
+            R.drawable.s5,
+            R.drawable.s5,
             R.drawable.s5,
 
     };
