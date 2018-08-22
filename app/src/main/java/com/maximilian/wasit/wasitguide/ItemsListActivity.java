@@ -1,6 +1,6 @@
 package com.maximilian.wasit.wasitguide;
 
-import android.support.v7.app.ActionBar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +10,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.List;
+
 
 public class ItemsListActivity extends AppCompatActivity {
 
@@ -23,9 +23,7 @@ public class ItemsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
 
-        ActionBar actionBar = getSupportActionBar();
 
-        actionBar.setTitle("category");
 
         mRecyclerView =findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
