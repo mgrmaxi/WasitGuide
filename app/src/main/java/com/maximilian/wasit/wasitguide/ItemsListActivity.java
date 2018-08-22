@@ -1,15 +1,24 @@
 package com.maximilian.wasit.wasitguide;
 
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.ByteArrayOutputStream;
 
 
 public class ItemsListActivity extends AppCompatActivity {
@@ -22,8 +31,6 @@ public class ItemsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
-
-
 
         mRecyclerView =findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -50,7 +57,43 @@ public class ItemsListActivity extends AppCompatActivity {
                         protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
                             viewHolder.setDetails(getApplicationContext(),model.getTitle(),model.getImage());
                         }
+
+                        @Override
+                        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+                            ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
+                            viewHolder.setOnClickListner(new ViewHolder.ClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+                                    //Views
+
+                                    //get data from views
+                                    String mTitle = getItem(position).getTitle();
+                                    String mImage = getItem(position).getImage();
+                                    String mDesc = getItem(position).getDscrip();
+
+
+                                    //pass this data to new activity
+                                    Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
+                                    intent.putExtra("title", mTitle); // put title
+                                    intent.putExtra("image", mImage); //put bitmap url
+                                    intent.putExtra("dscrip", mDesc); //put description
+                                    startActivity(intent); //start activity
+
+
+                                }
+
+                                @Override
+                                public void onItemLongClick(View view, int position) {
+                                    //TODO do your own implementaion on long item click
+                                }
+                            });
+
+                            return viewHolder;
+                        }
+
                     };
+
 
 
             mRecyclerView.setAdapter(firebaseRecyclerAdapter);

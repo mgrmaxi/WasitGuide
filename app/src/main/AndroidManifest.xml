@@ -22,7 +22,8 @@
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".CouncilActivity" />
         <activity android:name=".ItemsListActivity" />
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".ItemDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -59,7 +59,7 @@ public class SearchActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Model, ViewHolder>(
 
                 Model.class,
-                R.layout.localslayout,
+                R.layout.row,
                 ViewHolder.class,
                 firebaseSearchQuery
 
