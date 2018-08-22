@@ -27,7 +27,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mUserDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت");//.child("المؤسسات الحكومية");
+        mUserDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت").child("المؤسسات الحكومية");
 
 //TODO
         mSearchField =  findViewById(R.id.searchEditText);

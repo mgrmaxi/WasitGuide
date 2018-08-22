@@ -29,26 +29,27 @@ public class MainActivity extends AppCompatActivity {
         fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
 
 
-        ImageButton getlocalsbtn = findViewById(R.id.getlocalsbtn);
+        final ImageButton getlocalsbtn = findViewById(R.id.getlocalsbtn);
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
 
                 Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
 
-//handling menu status (open or close)
-        fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
-            @Override
-            public void onMenuToggle(boolean opened) {
-                if (opened) {
-                    showToast("Menu is opened");
-                } else {
-                    showToast("Menu is closed");
-                }
-            }
-        });
+////handling menu status (open or close)
+//        fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
+//            @Override
+//            public void onMenuToggle(boolean opened) {
+//                if (opened) {
+//                    showToast("Menu is opened");
+//                } else {
+//                    showToast("Menu is closed");
+//                }
+//            }
+//        });
 
         //handling each floating action button clicked
         fabHome.setOnClickListener(onButtonClick());
