@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
 
-    <EditText
+    <SearchView
         android:id="@+id/searchEditText"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -17,10 +17,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/search"
-        android:ems="10"
-        android:hint="ادخل كلمة البحث"
         android:inputType="textPersonName"
-        android:padding="13dp"
+
         app:layout_constraintEnd_toStartOf="@+id/searchBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

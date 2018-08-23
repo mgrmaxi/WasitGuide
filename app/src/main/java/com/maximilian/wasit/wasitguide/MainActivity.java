@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fabHome = (FloatingActionButton) findViewById(R.id.fab1);
-        fabSearch = (FloatingActionButton) findViewById(R.id.fab2);
-        fabAbout = (FloatingActionButton) findViewById(R.id.fab3);
-        fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
+        fabHome =   findViewById(R.id.fab1);
+        fabSearch = findViewById(R.id.fab2);
+        fabAbout =  findViewById(R.id.fab3);
+        fam =       findViewById(R.id.fab_menu);
 
 
         final ImageButton getlocalsbtn = findViewById(R.id.getlocalsbtn);
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
+                Intent intent = new Intent(MainActivity.this, LocalsActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
