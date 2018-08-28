@@ -37,15 +37,14 @@ public class ItemsListActivity extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mFirebaseDatabase= FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("قضاء الكوت").child("المؤسسات الحكومية");
+
+        mRef = (DatabaseReference) FirebaseDatabase.getInstance().getReference().child("قضاء الكوت").equalTo("المؤسسات الحكومية");
 
 
         }
         @Override
         protected void onStart(){
             super.onStart();
-
             FirebaseRecyclerAdapter<Model ,  ViewHolder> firebaseRecyclerAdapter =
                     new FirebaseRecyclerAdapter<Model, ViewHolder>(
                             Model.class,
@@ -57,7 +56,6 @@ public class ItemsListActivity extends AppCompatActivity {
                         protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
                             viewHolder.setDetails(getApplicationContext(),model.getTitle(),model.getImage());
                         }
-
                         @Override
                         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 

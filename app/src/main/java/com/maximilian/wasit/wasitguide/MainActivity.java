@@ -23,32 +23,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fabHome = (FloatingActionButton) findViewById(R.id.fab1);
-        fabSearch = (FloatingActionButton) findViewById(R.id.fab2);
-        fabAbout = (FloatingActionButton) findViewById(R.id.fab3);
-        fam = (FloatingActionMenu) findViewById(R.id.fab_menu);
+        fabHome =   findViewById(R.id.fab1);
+        fabSearch = findViewById(R.id.fab2);
+        fabAbout =  findViewById(R.id.fab3);
+        fam =       findViewById(R.id.fab_menu);
 
 
-        ImageButton getlocalsbtn = findViewById(R.id.getlocalsbtn);
+        final ImageButton getlocalsbtn = findViewById(R.id.getlocalsbtn);
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, ItemsListActivity.class);
+
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
 
-//handling menu status (open or close)
-        fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
-            @Override
-            public void onMenuToggle(boolean opened) {
-                if (opened) {
-                    showToast("Menu is opened");
-                } else {
-                    showToast("Menu is closed");
-                }
-            }
-        });
+////handling menu status (open or close)
+//        fam.setOnMenuToggleListener(new FloatingActionMenu.OnMenuToggleListener() {
+//            @Override
+//            public void onMenuToggle(boolean opened) {
+//                if (opened) {
+//                    showToast("Menu is opened");
+//                } else {
+//                    showToast("Menu is closed");
+//                }
+//            }
+//        });
 
         //handling each floating action button clicked
         fabHome.setOnClickListener(onButtonClick());
