@@ -9,7 +9,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
-        android:layout_height="645dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="268dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,6 +30,7 @@
                 android:layout_height="231dp"
                 android:layout_marginTop="8dp"
                 android:contentDescription="logo"
+                android:focusableInTouchMode="true"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

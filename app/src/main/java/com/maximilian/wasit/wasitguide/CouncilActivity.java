@@ -24,11 +24,11 @@ public class CouncilActivity extends AppCompatActivity {
             "الفنادق والمطاعم",
             "المتنزهات العامة",
             "الجامعات والمدارس",
-            "المزارات والمراكز الدينية والسياحية",
+            "المراكز الدينية والسياحية",
 
     };
 
-    String[] catigorydiscrip ={"نائل فاضل",
+    String[] catigorydiscrip ={"ومنظمات المجتمع المدني",
             "",
             "",
             " ",

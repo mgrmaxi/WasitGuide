@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/Home_menu_item"
-        android:title="Home"
+        android:title="Search"
         app:showAsAction="never"/>
 
     <!-- Settings, should always be in the overflow -->
@@ -16,6 +16,12 @@
         android:title="setteng"
         android:icon="@drawable/home"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/list"
+        android:icon="@drawable/list"
+        android:title="@+id/list"
+        app:showAsAction="always" />
 
 
 </menu>

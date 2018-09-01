@@ -29,7 +29,9 @@ ScrollView scrollView;
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
 
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.applilogo_round);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
@@ -83,14 +85,18 @@ ScrollView scrollView;
 
         switch (id) {
             case R.id.Home_menu_item:
-                Toast.makeText(this,"انت في الصفحة الرئيسية",Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.About_us_menu_item:
-                Intent intent = new Intent(MainActivity.this, AboutUsActivity.class);
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 MainActivity.this.startActivity(intent);
                 return true;
 
+            case R.id.About_us_menu_item:
+                intent = new Intent(MainActivity.this, AboutUsActivity.class);
+                MainActivity.this.startActivity(intent);
+                return true;
+            case R.id.list:
+                intent = new Intent(MainActivity.this, LocalsActivity.class);
+                MainActivity.this.startActivity(intent);
+                return true;
             default:
                 Toast.makeText(this,"انت في الصفحة الرئيسية",Toast.LENGTH_SHORT).show();
                 return super.onOptionsItemSelected(item);

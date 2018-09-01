@@ -30,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت");//.child("المؤسسات الحكومية");
+        mDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت").child("المؤسسات الحكومية");
 
 //TODO
         mSearchField =  findViewById(R.id.searchEditText);
@@ -47,11 +47,26 @@ public class SearchActivity extends AppCompatActivity {
                 String searchText = mSearchField.getQuery().toString();
 
                 firebaseSearch(searchText);
-
+                Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
             }
         });
 
+        mSearchField.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                firebaseSearch(query);
+                Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //Filter as you type
+                firebaseSearch(newText);
+                Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
 
     }
@@ -61,7 +76,7 @@ public class SearchActivity extends AppCompatActivity {
         //convert string entered in SearchView to lowercase
         String query = searchText.toLowerCase();
 
-        Query firebaseSearchQuery = mDatabase.orderByChild("title").startAt(query).endAt(query + "\uf8ff");
+        Query firebaseSearchQuery = mDatabase.orderByChild(query).startAt(query).endAt(query + "\uf8ff");
 
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(
