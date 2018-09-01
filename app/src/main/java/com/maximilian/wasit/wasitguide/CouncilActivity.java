@@ -1,9 +1,12 @@
 package com.maximilian.wasit.wasitguide;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -11,16 +14,17 @@ import android.widget.TextView;
 
 public class CouncilActivity extends AppCompatActivity {
 
-
+    TextView mtitle;
+    ImageView mimage;
+    TextView mdiscripText;
     protected ListView categoryList;
-    String[] catigoryNames ={"الدوائر والمؤسسات الحكومية",
+    String[] catigoryNames ={"المؤسسات الحكومية",
             "المستشفيات والمراكز الصحية",
             "محطات الوقود والكراجات",
             "الفنادق والمطاعم",
             "المتنزهات العامة",
             "الجامعات والمدارس",
-            "المناطق الاثرية والسياحية",
-            "المزارات والمراكز الدينية",
+            "المزارات والمراكز الدينية والسياحية",
 
     };
 
@@ -31,7 +35,7 @@ public class CouncilActivity extends AppCompatActivity {
             " ",
             " ",
             " ",
-            " ",
+
 
     };
 
@@ -42,7 +46,7 @@ public class CouncilActivity extends AppCompatActivity {
             R.drawable.s5,
             R.drawable.s5,
             R.drawable.s5,
-            R.drawable.s5,
+
 
     };
 
@@ -58,10 +62,87 @@ public class CouncilActivity extends AppCompatActivity {
         CouncilActivity.CustomAdapter customAdapter = new CustomAdapter();
         categoryList.setAdapter(customAdapter);
 
+        mtitle= findViewById(R.id.council_title);
+        mimage=findViewById(R.id.council_image);
+        mdiscripText=findViewById(R.id.council_discripText);
+
+
+
+        String title = getIntent().getStringExtra("title");
+        mtitle.setText(title);
+
+        String image = getIntent().getStringExtra("image");
+        String conimage = image.substring(13,16);
+
+        int id = getResources().getIdentifier(conimage, "drawable", this.getPackageName());
+        if(id != 0){
+           mimage.setImageResource(id);
+
+        }else{
+            mimage.setImageResource(R.drawable.a07);
+        }
+//TODO
+        switch (title){
+            case "قضاء الكوت":
+                mdiscripText.setText(R.string.kut_info);
+                break;
+        }
+
+
+
+
+
+
+        categoryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //get data from list
+                String mCategory = catigoryNames[position];
+                String mImage = getString(catigoryImages[position]);
+                String mDiscrip =catigorydiscrip[position];
+
+                // String mDesc = mDescTv.getText().toString();
+
+
+                //pass this data to new activity
+                Intent intent = new Intent(view.getContext(), ItemsListActivity.class);
+                String title = getIntent().getStringExtra("title");
+
+                intent.putExtra("localRef", title); // put title
+                intent.putExtra("category", mCategory); // put title
+
+
+//                intent.putExtra("image", mImage); // put image
+//                intent.putExtra("discrip", mDiscrip); // put discrip
+              //  Log.i("nummmmmmm", getString(localsImages[position]));
+
+
+                startActivity(intent); //start activity
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
 
 
 
     }
+
+
+
+
+
+
+
 
     class CustomAdapter extends BaseAdapter {
 

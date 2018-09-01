@@ -1,7 +1,9 @@
 package com.maximilian.wasit.wasitguide;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -33,7 +35,8 @@ public class LocalsActivity extends AppCompatActivity {
             "ناحية زرباطية",
             "ناحية البشائر",
     };
-    String[] summery ={"مركز المحافظة 180 كم جنوبي بغداد",
+
+    String[] summery ={ "الكوت" ,
             "قضاء الصويرة",
             "قضاء الحي",
             "قضاء العزيزية",
@@ -51,15 +54,16 @@ public class LocalsActivity extends AppCompatActivity {
             "ناحية زرباطية",
             "ناحية البشائر",
     };
-    int[] localsImages ={R.drawable.a1,
-            R.drawable.a2,
-            R.drawable.a3,
-            R.drawable.a4,
-            R.drawable.a5,
-            R.drawable.a6,
-            R.drawable.a7,
-            R.drawable.a8,
-            R.drawable.a9,
+    int[] localsImages ={
+            R.drawable.a01,
+            R.drawable.a02,
+            R.drawable.a03,
+            R.drawable.a04,
+            R.drawable.a05,
+            R.drawable.a06,
+            R.drawable.a07,
+            R.drawable.a08,
+            R.drawable.a09,
             R.drawable.a10,
             R.drawable.a11,
             R.drawable.a12,
@@ -84,6 +88,26 @@ public class LocalsActivity extends AppCompatActivity {
         localsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //get data from list
+                String mTitle = localsNames[position];
+                String mImage = getString(localsImages[position]);
+                String mDiscrip = summery[position];
+
+                // String mDesc = mDescTv.getText().toString();
+
+
+                //pass this data to new activity
+                Intent intent = new Intent(view.getContext(), CouncilActivity.class);
+                intent.putExtra("title", mTitle); // put title
+                intent.putExtra("image", mImage); // put image
+                intent.putExtra("discrip", mDiscrip); // put discrip
+                Log.i("nummmmmmm", getString(localsImages[position]));
+
+                //intent.putExtra("description", mDesc); //put description
+                startActivity(intent); //start activity
+
+
 
 
             }

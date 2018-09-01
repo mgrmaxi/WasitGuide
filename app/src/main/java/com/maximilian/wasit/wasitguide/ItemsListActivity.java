@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,6 +27,11 @@ public class ItemsListActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     FirebaseDatabase mFirebaseDatabase;
     DatabaseReference mRef;
+    String localRef ;
+    String category;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +44,16 @@ public class ItemsListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mFirebaseDatabase= FirebaseDatabase.getInstance();
-        mRef = mFirebaseDatabase.getReference("قضاء الكوت").child("المؤسسات الحكومية");
 
+
+        localRef = getIntent().getStringExtra("localRef");
+        category = getIntent().getStringExtra("category");
+
+
+        mRef = mFirebaseDatabase.getReference(localRef).child(category);
+
+        Log.i("catttttttttttt",category);
+        Log.i("Reeeeeeeeet",localRef);
 
         }
         @Override
@@ -70,14 +84,15 @@ public class ItemsListActivity extends AppCompatActivity {
                                     //get data from views
                                     String mTitle = getItem(position).getTitle();
                                     String mImage = getItem(position).getImage();
-                                    String mDesc = getItem(position).getDscrip();
+                                   // String mDesc = mDescTv.getText().toString();
 
 
                                     //pass this data to new activity
                                     Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
                                     intent.putExtra("title", mTitle); // put title
                                     intent.putExtra("image", mImage); //put bitmap url
-                                    intent.putExtra("dscrip", mDesc); //put description
+
+                                    //intent.putExtra("description", mDesc); //put description
                                     startActivity(intent); //start activity
 
 
@@ -85,7 +100,7 @@ public class ItemsListActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onItemLongClick(View view, int position) {
-                                    //TODO do your own implementaion on long item click
+                                    //TODO on long item click
                                 }
                             });
 

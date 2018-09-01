@@ -42,7 +42,6 @@
             app:srcCompat="@drawable/maz" />
 
         <ImageView
-            android:id="@+id/imageView8"
             android:layout_width="500dp"
             android:layout_height="60dp"
             android:layout_gravity="bottom|left"

@@ -1,162 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    >
+    tools:layout_editor_absoluteY="25dp">
+
+
+
+
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="504dp"
+                    android:layout_height="244dp"
+                    android:contentDescription="ه"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ss" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="واســـط"
+                    android:textColor="@android:color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.971"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="5sp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/About_wasit"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="13dp" />
+
+                        <TextView
+                            android:id="@+id/aria_infoTextV2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="5sp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/Aria_title"
+                            android:textSize="30sp"
+                            tools:layout_editor_absoluteX="13dp" />
+
+                        <TextView
+                            android:id="@+id/aria_infoTextV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="5sp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/aria_info"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="13dp" />
+
+                        <TextView
+                            android:id="@+id/aria_infoTextV3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="5sp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/farm_title"
+                            android:textSize="30sp"
+                            tools:layout_editor_absoluteX="13dp" />
+
+                        <TextView
+                            android:id="@+id/aria_infoTextV4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="5sp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="@string/farm_info"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="13dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingBottom="110dp"
+                            android:paddingTop="10dp"
+                            app:srcCompat="@drawable/about"
+                            tools:layout_editor_absoluteX="365dp" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/data"
+                            tools:layout_editor_absoluteX="359dp"
+                            tools:layout_editor_absoluteY="129dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
     </ScrollView>
-
-    <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/fab_menu"
-        fab:fab_colorNormal="#FF1CD881"
-        fab:fab_colorPressed="#127b4a"
-        fab:fab_colorRipple="#99FFFFFF"
-        fab:fab_shadowColor="#66000000"
-        fab:fab_showShadow="true"
-        fab:menu_backgroundColor="#ccffffff"
-        fab:menu_labels_colorNormal="#333333"
-        fab:menu_labels_colorPressed="#444444"
-        fab:menu_labels_colorRipple="#66FFFFFF"
-        fab:menu_labels_ellipsize="end"
-        fab:menu_labels_maxLines="-1"
-        fab:menu_labels_position="left"
-        fab:menu_labels_showShadow="true"
-        fab:menu_labels_singleLine="true"
-        fab:menu_openDirection="up"
-        fab_colorNormal="#FF1CD881"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:paddingBottom="20dp"
-        android:paddingRight="20dp">
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_myplaces"
-            fab:fab_label="واســـط"
-            fab:fab_size="mini" />
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_search"
-            fab:fab_label="بحـث"
-            fab:fab_size="mini" />
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rlogo"
-            fab:fab_label="عــنا"
-            fab:fab_size="mini" />
-
-    </com.github.clans.fab.FloatingActionMenu>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="504dp"
-        android:layout_height="244dp"
-        android:contentDescription="ه"
-        android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ss" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="واســـط"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/about" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="332dp"
-        android:layout_height="261dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
-        android:lineSpacingExtra="5sp"
-        android:text="1-	جغرافية المحافظة: -موقع المحافظة : تحديد المحافظة على الخارطة مع ذكر نبذة عن المحافظة. حدود المحافظة: يتم من خلالها تحديد على الخارطة حدود كل قضاء او ناحية.  نفوس المحافظة: يتم ذكر نفوس القضاء او الناحية. الوحدات الادارية للمحافظة: ويتم ذلك من خلال تثبيت نقطة على خارطة موضح عليها موقع المحافظة و التقسيمات الاداريه للمحافظة (الاقضية والنواحي المرتبطة بها). "
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="88dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/data" />
 
     <ImageButton
         android:id="@+id/getlocalsbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:background="@drawable/units"
         android:cropToPadding="true"
-        android:soundEffectsEnabled="true"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
 </android.support.constraint.ConstraintLayout>

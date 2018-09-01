@@ -29,7 +29,6 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -41,7 +40,6 @@
                 tools:layout_editor_absoluteX="50dp" />
 
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -54,7 +52,7 @@
                 tools:layout_editor_absoluteY="344dp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/council_discripText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -66,7 +64,6 @@
                 tools:layout_editor_absoluteY="344dp" />
 
             <TextView
-                android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -86,7 +83,7 @@
                 android:layout_height="700dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/council_discripText"
                 tools:layout_editor_absoluteX="39dp"
                 tools:layout_editor_absoluteY="325dp" />
         </LinearLayout>

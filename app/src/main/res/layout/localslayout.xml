@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_goneMarginBottom="10dp"
         app:layout_goneMarginTop="10dp"
-        app:srcCompat="@drawable/a1" />
+        app:srcCompat="@drawable/a01" />
 
     <TextView
         android:id="@+id/localNametext"
