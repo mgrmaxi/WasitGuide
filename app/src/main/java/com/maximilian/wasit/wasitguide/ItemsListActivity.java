@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,12 +39,12 @@ public class ItemsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
 
-        mRecyclerView =findViewById(R.id.recyclerView);
+        mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mFirebaseDatabase= FirebaseDatabase.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
 
 
         localRef = getIntent().getStringExtra("localRef");
@@ -52,11 +53,13 @@ public class ItemsListActivity extends AppCompatActivity {
 
         mRef = mFirebaseDatabase.getReference(localRef).child(category);
 
-        Log.i("catttttttttttt",category);
-        Log.i("Reeeeeeeeet",localRef);
+        Log.i("catttttttttttt", category);
+        Log.i("Reeeeeeeeet", localRef);
 
-        }
-        @Override
+
+    }
+
+    @Override
         protected void onStart(){
             super.onStart();
 

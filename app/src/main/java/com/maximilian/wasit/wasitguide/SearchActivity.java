@@ -1,24 +1,37 @@
 package com.maximilian.wasit.wasitguide;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
-public class SearchActivity extends AppCompatActivity {
+
+
+public class SearchActivity extends BaseActivity {
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     private SearchView mSearchField;
     private ImageButton mSearchBtn;
@@ -30,13 +43,13 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت").child("المؤسسات الحكومية");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("قضاء الكوت").child("المؤسسات الحكومية").child("1");
 
 //TODO
-        mSearchField =  findViewById(R.id.searchEditText);
-       mSearchBtn =  findViewById(R.id.searchBtn);
-//
-        mResultList =  findViewById(R.id.searchRecycle);
+        mSearchField    =  findViewById(R.id.searchEditText);
+        mSearchBtn      =  findViewById(R.id.searchBtn);
+        mResultList     =  findViewById(R.id.searchRecycle);
+
         mResultList.setHasFixedSize(true);
         mResultList.setLayoutManager(new LinearLayoutManager(this));
 
@@ -50,6 +63,9 @@ public class SearchActivity extends AppCompatActivity {
                 Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
 
         mSearchField.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -76,7 +92,7 @@ public class SearchActivity extends AppCompatActivity {
         //convert string entered in SearchView to lowercase
         String query = searchText.toLowerCase();
 
-        Query firebaseSearchQuery = mDatabase.orderByChild(query).startAt(query).endAt(query + "\uf8ff");
+        Query firebaseSearchQuery = mDatabase.orderByChild("قضاء الكوت").startAt(query).endAt(query + "\uf8ff");
 
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(
