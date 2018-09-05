@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/localNametext"
             android:layout_below="@+id/localNametext"
-            android:text="TextView"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
 

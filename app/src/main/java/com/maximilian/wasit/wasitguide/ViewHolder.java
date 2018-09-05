@@ -43,8 +43,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         TextView mTitleTv = mView.findViewById(R.id.titletextView);
         ImageView mImageView = mView.findViewById(R.id.itemImageView);
 
+
+
         mTitleTv.setText(title);
         Picasso.get().load(image).into(mImageView);
+
+
 
     }
     private ViewHolder.ClickListener mClickListener;

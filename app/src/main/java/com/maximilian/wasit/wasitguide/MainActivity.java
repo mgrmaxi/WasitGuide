@@ -9,7 +9,9 @@ import android.net.Uri;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,6 +39,7 @@ public class MainActivity extends BaseActivity {
 
 //##############################################  End menu ######################################
 
+    ImageView forgroundImage;
     ScrollView scrollView;
     ImageButton getlocalsbtn;
 
@@ -45,15 +48,18 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        forgroundImage = findViewById(R.id.forgroundimage);
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
         ImageView mapImage = findViewById(R.id.mapimage);
+
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.applilogo_round);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-
+        Display display = getWindowManager().getDefaultDisplay();
+        forgroundImage.animate().translationYBy(-display.getHeight()).setDuration(1000).setStartDelay(3000);
 
         mapImage.setOnClickListener(new View.OnClickListener() {
             @Override

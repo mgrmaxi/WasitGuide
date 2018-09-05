@@ -28,6 +28,7 @@ public class ItemDetailActivity extends BaseActivity {
 
 
     TextView itemtext;
+    TextView infotext;
     TextView itemDscrip;
     ImageView itemimage;
 
@@ -39,6 +40,7 @@ public class ItemDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_item_detail);
 
         itemtext = findViewById(R.id.titleText);
+        infotext = findViewById(R.id.infotext);
         itemDscrip=findViewById(R.id.dscripTextView);
         itemimage = findViewById(R.id.itemImage);
 
@@ -47,14 +49,18 @@ public class ItemDetailActivity extends BaseActivity {
         //get data from intent
 
         String title = getIntent().getStringExtra("title");
+        String info = getIntent().getStringExtra("info");
         String image = getIntent().getStringExtra("image");
         String detail = getIntent().getStringExtra("dscrip");
+
         ;
 
         //set data to views
         itemtext.setText(title);
-        itemDscrip.setText(detail);
+        infotext.setText(info);
         Picasso.get().load(image).into(itemimage);
+        itemDscrip.setText(detail);
+
 
 
 

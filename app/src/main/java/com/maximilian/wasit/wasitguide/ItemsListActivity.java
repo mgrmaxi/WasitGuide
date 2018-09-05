@@ -53,8 +53,6 @@ public class ItemsListActivity extends AppCompatActivity {
 
         mRef = mFirebaseDatabase.getReference(localRef).child(category);
 
-        Log.i("catttttttttttt", category);
-        Log.i("Reeeeeeeeet", localRef);
 
 
     }
@@ -86,14 +84,19 @@ public class ItemsListActivity extends AppCompatActivity {
 
                                     //get data from views
                                     String mTitle = getItem(position).getTitle();
+                                    String mInfo = getItem(position).getInfo();
                                     String mImage = getItem(position).getImage();
-                                   // String mDesc = mDescTv.getText().toString();
+                                    String mDesc = getItem(position).getDscrip();
+
 
 
                                     //pass this data to new activity
                                     Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
                                     intent.putExtra("title", mTitle); // put title
+                                    intent.putExtra("info", mInfo); //put bitmap url
                                     intent.putExtra("image", mImage); //put bitmap url
+                                    intent.putExtra("dscrip", mDesc); //put bitmap url
+
 
                                     //intent.putExtra("description", mDesc); //put description
                                     startActivity(intent); //start activity
