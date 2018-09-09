@@ -8,14 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
 
 
 public class SearchActivity extends BaseActivity {
@@ -32,7 +31,6 @@ public class SearchActivity extends BaseActivity {
     }
 
 
-
     private SearchView mSearchField;
     private RecyclerView mResultList;
     private DatabaseReference mDatabase;
@@ -45,8 +43,8 @@ public class SearchActivity extends BaseActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت").child("المؤسسات الحكومية");
 
 //TODO
-        mSearchField    =  findViewById(R.id.searchEditText);
-        mResultList     =  findViewById(R.id.searchRecycle);
+        mSearchField = findViewById(R.id.searchEditText);
+        mResultList = findViewById(R.id.searchRecycle);
 
         mResultList.setHasFixedSize(true);
         mResultList.setLayoutManager(new LinearLayoutManager(this));
@@ -61,8 +59,6 @@ public class SearchActivity extends BaseActivity {
 //                Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
 //            }
 //        });
-
-
 
 
         mSearchField.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -101,7 +97,7 @@ public class SearchActivity extends BaseActivity {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getApplicationContext(), model.getTitle(),  model.getImage());
+                        viewHolder.setDetails(getApplicationContext(), model.getTitle(), model.getImage());
 
                     }
 
@@ -144,7 +140,6 @@ public class SearchActivity extends BaseActivity {
                     }
 
                 };
-
 
 
         mResultList.setAdapter(firebaseRecyclerAdapter);

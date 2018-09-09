@@ -2,15 +2,9 @@ package com.maximilian.wasit.wasitguide;
 
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,10 +16,8 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 
-
-
 public class MainActivity extends BaseActivity {
-//############################################## menu ######################################
+    //############################################## menu ######################################
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -37,39 +29,41 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//##############################################  End menu ######################################
+//##############################################  views  ######################################
 
     ImageView forgroundImage;
     ScrollView scrollView;
     ImageButton getlocalsbtn;
+    ImageView mapImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         forgroundImage = findViewById(R.id.forgroundimage);
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
-        ImageView mapImage = findViewById(R.id.mapimage);
+        mapImage = findViewById(R.id.mapimage);
 
-
+//===================================logo at top of activity ===============================
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.applilogo_round);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-
+//===================================foreground animated image ==============================
         Display display = getWindowManager().getDefaultDisplay();
         forgroundImage.animate().translationYBy(-display.getHeight()).setDuration(1000).setStartDelay(3000);
 
         mapImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openMap("https://goo.gl/maps/Gk7Cqa3dkV22");
+                openMap("https://goo.gl/maps/Gk7Cqa3dkV22");  // link to wasit map
             }
         });
 
 
-        getlocalsbtn.setOnClickListener(new View.OnClickListener() {
+        getlocalsbtn.setOnClickListener(new View.OnClickListener() {  // go to locals activity
             public void onClick(View view) {
 
 
@@ -78,7 +72,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
+//=================================scrolle code ======================================
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -87,8 +81,7 @@ public class MainActivity extends BaseActivity {
                     if (scrollView.getChildAt(0).getBottom() <= (scrollView.getHeight() + scrollView.getScrollY())) {
                         getlocalsbtn.animate().translationY(-50).getStartDelay();
 
-                       }
-                    else {
+                    } else {
                         getlocalsbtn.animate().translationY(500).getStartDelay();
 
                     }
@@ -96,22 +89,25 @@ public class MainActivity extends BaseActivity {
                 }
 
             }
-       });
+        });
 
-    }
-                public void openMap(String uri){
-                try {
-                    Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri));
-                    intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-                    startActivity(intent);
-                }
-                catch (ActivityNotFoundException e)
-                {
-                    Toast.makeText(this, "خطا!! لايوجد تطبيق للخرائط مثبت على هذا الجهاز او غير مفعل", Toast.LENGTH_SHORT).show();
-                }
+////////////////////////////oncreate() end ////////////////////////////
     }
 
 
+    //=======================================open app ( map app) and go to an custom location==============
+    public void openMap(String uri) {
+        try {
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri));
+            intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "خطا!! لايوجد تطبيق للخرائط مثبت على هذا الجهاز او غير مفعل", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+///////////////////////////////end main//////////////////////////////////////////
 }
 
 

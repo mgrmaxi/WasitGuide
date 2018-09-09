@@ -11,20 +11,42 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".splashActivity"
+        <activity
+            android:name=".splashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LocalsActivity"        android:launchMode="singleInstance" android:screenOrientation="portrait"/>
-        <activity android:name=".AboutUsActivity"       android:launchMode="singleInstance" android:screenOrientation="portrait"/>
-        <activity android:name=".CouncilActivity"       android:launchMode="singleInstance" android:screenOrientation="portrait"/>
-        <activity android:name=".ItemsListActivity"     android:launchMode="singleInstance" android:screenOrientation="portrait"/>
-        <activity android:name=".SearchActivity"        android:launchMode="singleInstance" android:screenOrientation="portrait"/>
-        <activity android:name=".ItemDetailActivity"    android:launchMode="singleInstance" android:screenOrientation="portrait"/>
-        <activity android:name=".MainActivity"          android:launchMode="singleInstance" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LocalsActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CouncilActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ItemsListActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ItemDetailActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

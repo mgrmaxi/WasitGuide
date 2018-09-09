@@ -5,17 +5,18 @@
     <item
         android:id="@+id/search_menu_item"
         android:title="Search"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
-    <item android:id="@+id/About_us_menu_item"
+    <item
+        android:id="@+id/About_us_menu_item"
         android:title="About us"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/Home_menu_item"
         android:title="Home"
         android:icon="@drawable/home"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/list"

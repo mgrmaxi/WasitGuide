@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,13 +28,24 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="244dp"
+                    android:layout_height="300dp"
+                    android:clickable="true"
                     android:contentDescription="ه"
+                    android:focusable="true"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ss" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="71dp"
+                    android:layout_gravity="bottom|left"
+                    android:alpha="0.4"
+                    android:contentDescription="line"
+                    app:srcCompat="@color/common_google_signin_btn_text_dark_focused" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -41,6 +53,7 @@
                     android:layout_gravity="bottom|right"
                     android:layout_margin="10dp"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:text="واســـط"
                     android:textColor="@android:color/white"
                     android:textSize="40sp"
@@ -52,146 +65,500 @@
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="100dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_gravity="right"
+                            android:layout_weight="1"
+                            android:lineSpacingExtra="5sp"
+                            android:padding="10dp"
+                            android:text="@string/About_wasit"
+                            android:textSize="20sp"
+                            tools:layout_editor_absoluteX="13dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|clip_horizontal"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/mapimage"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            app:srcCompat="@drawable/map_icon"
+                            tools:layout_editor_absoluteX="365dp" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="120dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/data"
+                            tools:layout_editor_absoluteX="359dp"
+                            tools:layout_editor_absoluteY="129dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingBottom="100dp">
+                    android:padding="10dp">
 
-                    <LinearLayout
+                    <android.support.v7.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/low_white"
+                        app:cardElevation="3dp"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="2dp">
 
-                        <LinearLayout
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
                             android:layout_weight="1"
-                            android:gravity="left"
-                            android:orientation="vertical">
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/kut" />
+                    </android.support.v7.widget.CardView>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_gravity="right"
-                                android:layout_weight="1"
-                                android:lineSpacingExtra="5sp"
-                                android:padding="10dp"
-                                android:text="@string/About_wasit"
-                                android:textSize="20sp"
-                                tools:layout_editor_absoluteX="13dp" />
+                    <TextView
+                        android:id="@+id/aria_infoTextV2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lineSpacingExtra="5sp"
+                        android:padding="10dp"
+                        android:text="@string/Aria_title"
+                        android:textSize="30sp"
+                        tools:layout_editor_absoluteX="13dp" />
 
-                        </LinearLayout>
+                    <TextView
+                        android:id="@+id/aria_infoTextV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lineSpacingExtra="5sp"
+                        android:padding="10dp"
+                        android:text="@string/aria_info"
+                        android:textSize="20sp"
+                        tools:layout_editor_absoluteX="13dp" />
+
+                    <TextView
+                        android:id="@+id/aria_infoTextV3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lineSpacingExtra="5sp"
+                        android:padding="10dp"
+                        android:text="@string/farm_title"
+                        android:textSize="30sp"
+                        tools:layout_editor_absoluteX="13dp" />
+
+                    <TextView
+                        android:id="@+id/aria_infoTextV4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:lineSpacingExtra="5sp"
+                        android:padding="10dp"
+                        android:text="@string/farm_info"
+                        android:textSize="20sp"
+                        tools:layout_editor_absoluteX="13dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/textGrid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="GRID LAYOUT"
+                        android:textColor="@android:color/white"
+                        android:textSize="34sp" />
+
+                </RelativeLayout>
+
+                <GridLayout
+                    android:id="@+id/mainGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="2"
+                    android:columnOrderPreserved="false"
+                    android:padding="14dp"
+                    android:rowCount="3">
+
+                    <!-- Row 1 -->
+
+                    <!-- Column 1 -->
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|clip_horizontal"
-                            android:layout_weight="1"
-                            android:gravity="right"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/mapimage"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="5dp"
-                                android:layout_weight="1"
-                                android:clickable="true"
-                                app:srcCompat="@drawable/map_icon"
-                                tools:layout_editor_absoluteX="365dp" />
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/s1" />
 
-                            <ImageView
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="120dp"
-                                android:layout_weight="1"
-                                app:srcCompat="@drawable/data"
-                                tools:layout_editor_absoluteX="359dp"
-                                tools:layout_editor_absoluteY="129dp" />
+                                android:layout_gravity="center_horizontal"
+                                android:text="المستشفيات العامة "
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
-                    </LinearLayout>
+                    </android.support.v7.widget.CardView>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="10dp">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
 
-                        <android.support.v7.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            app:cardBackgroundColor="@color/low_white"
-                            app:cardElevation="3dp"
-                            app:cardUseCompatPadding="true"
-                            app:contentPadding="2dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView2"
-                                android:layout_width="match_parent"
-                                android:layout_height="300dp"
-                                android:layout_weight="1"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
                                 android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/kut" />
-                        </android.support.v7.widget.CardView>
+                                android:src="@drawable/s2" />
 
-                        <TextView
-                            android:id="@+id/aria_infoTextV2"
-                            android:layout_width="match_parent"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="المؤسسات الحكومية"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:lineSpacingExtra="5sp"
-                            android:padding="10dp"
-                            android:text="@string/Aria_title"
-                            android:textSize="30sp"
-                            tools:layout_editor_absoluteX="13dp" />
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/aria_infoTextV"
-                            android:layout_width="match_parent"
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/s3" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="الاماكن السياحية"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:lineSpacingExtra="5sp"
-                            android:padding="10dp"
-                            android:text="@string/aria_info"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="13dp" />
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/aria_infoTextV3"
-                            android:layout_width="match_parent"
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/s4" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="محطات الوقود "
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:lineSpacingExtra="5sp"
-                            android:padding="10dp"
-                            android:text="@string/farm_title"
-                            android:textSize="30sp"
-                            tools:layout_editor_absoluteX="13dp" />
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/aria_infoTextV4"
-                            android:layout_width="match_parent"
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/s5" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="الجامعات والمعاهد"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:lineSpacingExtra="5sp"
-                            android:padding="10dp"
-                            android:text="@string/farm_info"
-                            android:textSize="20sp"
-                            tools:layout_editor_absoluteX="13dp" />
-                    </LinearLayout>
-                </LinearLayout>
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
 
-            </android.support.v7.widget.CardView>
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ss" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="الفنادق والمطاعم"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/s3" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="الاحياء الصناعية"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_rowWeight="1"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp"
+                        tools:targetApi="lollipop">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="16dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/s1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="الاماكن الترفيهية"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </GridLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
@@ -219,6 +586,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:scaleType="matrix"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/maz" />

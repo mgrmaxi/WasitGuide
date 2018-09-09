@@ -1,9 +1,7 @@
 package com.maximilian.wasit.wasitguide;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,14 +27,13 @@ public class CouncilActivity extends BaseActivity {
     }
 
 
-
-
-
     TextView mtitle;
     ImageView mimage;
     TextView mdiscripText;
     protected ListView categoryList;
-    String[] catigoryNames ={"المؤسسات الحكومية",
+
+
+    String[] catigoryNames = {"المؤسسات الحكومية",
             "المستشفيات والمراكز الصحية",
             "محطات الوقود والكراجات",
             "الفنادق والمطاعم",
@@ -46,7 +43,7 @@ public class CouncilActivity extends BaseActivity {
 
     };
 
-    String[] catigorydiscrip ={"ومنظمات المجتمع المدني",
+    String[] catigorydiscrip = {"ومنظمات المجتمع المدني",
             "",
             "",
             " ",
@@ -57,7 +54,7 @@ public class CouncilActivity extends BaseActivity {
 
     };
 
-    int[] catigoryImages ={R.drawable.s1,
+    int[] catigoryImages = {R.drawable.s1,
             R.drawable.s2,
             R.drawable.s3,
             R.drawable.s4,
@@ -75,40 +72,34 @@ public class CouncilActivity extends BaseActivity {
         setContentView(R.layout.activity_council);
 
 
-
         categoryList = findViewById(R.id.categoryList);
         CouncilActivity.CustomAdapter customAdapter = new CustomAdapter();
         categoryList.setAdapter(customAdapter);
 
-        mtitle= findViewById(R.id.council_title);
-        mimage=findViewById(R.id.council_image);
-        mdiscripText=findViewById(R.id.council_discripText);
-
+        mtitle = findViewById(R.id.council_title);
+        mimage = findViewById(R.id.council_image);
+        mdiscripText = findViewById(R.id.council_discripText);
 
 
         String title = getIntent().getStringExtra("title");
         mtitle.setText(title);
 
         String image = getIntent().getStringExtra("image");
-        String conimage = image.substring(13,16);
+        String conimage = image.substring(13, 16);
 
         int id = getResources().getIdentifier(conimage, "drawable", this.getPackageName());
-        if(id != 0){
-           mimage.setImageResource(id);
+        if (id != 0) {
+            mimage.setImageResource(id);
 
-        }else{
+        } else {
             mimage.setImageResource(R.drawable.a07);
         }
-//TODO
-        switch (title){
+//TODO add all locals
+        switch (title) {
             case "قضاء الكوت":
                 mdiscripText.setText(R.string.kut_info);
                 break;
         }
-
-
-
-
 
 
         categoryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -118,7 +109,7 @@ public class CouncilActivity extends BaseActivity {
                 //get data from list
                 String mCategory = catigoryNames[position];
                 String mImage = getString(catigoryImages[position]);
-                String mDiscrip =catigorydiscrip[position];
+                String mDiscrip = catigorydiscrip[position];
 
                 // String mDesc = mDescTv.getText().toString();
 
@@ -133,33 +124,17 @@ public class CouncilActivity extends BaseActivity {
 
 //                intent.putExtra("image", mImage); // put image
 //                intent.putExtra("discrip", mDiscrip); // put discrip
-              //  Log.i("nummmmmmm", getString(localsImages[position]));
+                //  Log.i("nummmmmmm", getString(localsImages[position]));
 
 
                 startActivity(intent); //start activity
-
-
 
 
             }
         });
 
 
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
 
 
     class CustomAdapter extends BaseAdapter {
@@ -183,11 +158,11 @@ public class CouncilActivity extends BaseActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View view = getLayoutInflater().inflate(R.layout.localslayout,null);
+            View view = getLayoutInflater().inflate(R.layout.localslayout, null);
 
             ImageView image = view.findViewById(R.id.localimage);
-            TextView Name =  view.findViewById(R.id.localNametext);
-            TextView summry =  view.findViewById(R.id.summeryText);
+            TextView Name = view.findViewById(R.id.localNametext);
+            TextView summry = view.findViewById(R.id.summeryText);
 
             image.setImageResource(catigoryImages[position]);
             Name.setText(catigoryNames[position]);
@@ -199,9 +174,4 @@ public class CouncilActivity extends BaseActivity {
     }
 
 
-
-
-
-
-
-    }
+}

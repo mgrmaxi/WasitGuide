@@ -13,7 +13,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     View mView;
 
 
-
     public ViewHolder(View itemView) {
         super(itemView);
 
@@ -38,29 +37,30 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
     //set Details to recycle view row
 
-    public void setDetails (Context ctx, String title, String image){
+    public void setDetails(Context ctx, String title, String image) {
 
         TextView mTitleTv = mView.findViewById(R.id.titletextView);
         ImageView mImageView = mView.findViewById(R.id.itemImageView);
-
 
 
         mTitleTv.setText(title);
         Picasso.get().load(image).into(mImageView);
 
 
-
     }
+
     private ViewHolder.ClickListener mClickListener;
 
     // call items
 
-    public interface ClickListener{
+    public interface ClickListener {
 
-        void onItemClick (View view , int position);
-        void onItemLongClick (View view , int position);
+        void onItemClick(View view, int position);
+
+        void onItemLongClick(View view, int position);
     }
-    public void setOnClickListner (ViewHolder.ClickListener clickListener){
+
+    public void setOnClickListner(ViewHolder.ClickListener clickListener) {
         mClickListener = clickListener;
     }
 

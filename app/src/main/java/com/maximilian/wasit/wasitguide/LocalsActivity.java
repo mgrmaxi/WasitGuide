@@ -1,7 +1,6 @@
 package com.maximilian.wasit.wasitguide;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -13,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 
 
 public class LocalsActivity extends BaseActivity {
@@ -30,10 +28,8 @@ public class LocalsActivity extends BaseActivity {
     }
 
 
-
-
     protected ListView localsList;
-    String[] localsNames ={"قضاء الكوت",
+    String[] localsNames = {"قضاء الكوت",
             "قضاء الصويرة",
             "قضاء الحي",
             "قضاء العزيزية",
@@ -52,7 +48,7 @@ public class LocalsActivity extends BaseActivity {
             "ناحية البشائر",
     };
 
-    String[] summery ={ "الكوت" ,
+    String[] summery = {"الكوت",
             "قضاء الصويرة",
             "قضاء الحي",
             "قضاء العزيزية",
@@ -70,7 +66,7 @@ public class LocalsActivity extends BaseActivity {
             "ناحية زرباطية",
             "ناحية البشائر",
     };
-    int[] localsImages ={
+    int[] localsImages = {
             R.drawable.a01,
             R.drawable.a02,
             R.drawable.a03,
@@ -124,15 +120,13 @@ public class LocalsActivity extends BaseActivity {
                 startActivity(intent); //start activity
 
 
-
-
             }
         });
 
 
     }
 
-    class CustomAdapter extends BaseAdapter{
+    class CustomAdapter extends BaseAdapter {
 
 
         @Override
@@ -153,23 +147,19 @@ public class LocalsActivity extends BaseActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View view = getLayoutInflater().inflate(R.layout.localslayout,null);
+            View view = getLayoutInflater().inflate(R.layout.localslayout, null);
 
             ImageView image = view.findViewById(R.id.localimage);
-            TextView Name =  view.findViewById(R.id.localNametext);
-            TextView summry =  view.findViewById(R.id.summeryText);
+            TextView Name = view.findViewById(R.id.localNametext);
+            TextView summry = view.findViewById(R.id.summeryText);
 
-           image.setImageResource(localsImages[position]);
+            image.setImageResource(localsImages[position]);
             Name.setText(localsNames[position]);
             summry.setText(summery[position]);
 
             return view;
         }
     }
-
-
-
-
 
 
 }

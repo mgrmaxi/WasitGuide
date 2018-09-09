@@ -1,9 +1,5 @@
 package com.maximilian.wasit.wasitguide;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,12 +22,10 @@ public class ItemDetailActivity extends BaseActivity {
     }
 
 
-
     TextView itemtext;
     TextView infotext;
     TextView itemDscrip;
     ImageView itemimage;
-
 
 
     @Override
@@ -41,9 +35,8 @@ public class ItemDetailActivity extends BaseActivity {
 
         itemtext = findViewById(R.id.titleText);
         infotext = findViewById(R.id.infotext);
-        itemDscrip=findViewById(R.id.dscripTextView);
+        itemDscrip = findViewById(R.id.dscripTextView);
         itemimage = findViewById(R.id.itemImage);
-
 
 
         //get data from intent
@@ -60,9 +53,6 @@ public class ItemDetailActivity extends BaseActivity {
         infotext.setText(info);
         Picasso.get().load(image).into(itemimage);
         itemDscrip.setText(detail);
-
-
-
 
 
     }
