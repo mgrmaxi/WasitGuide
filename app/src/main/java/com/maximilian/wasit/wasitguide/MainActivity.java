@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity {
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
         mapImage = findViewById(R.id.mapimage);
-        mainGrid = findViewById(R.id.mainGrid);
+
 
 //===================================logo at top of activity ===============================
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -99,7 +99,31 @@ public class MainActivity extends BaseActivity {
         });
 
 ////////////////////////////////////////////////////////////////////////////
-
+//        mainGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                //get data from list
+//                String mCategory = catigoryNames[position];
+//                String mImage = getString(catigoryImages[position]);
+//                String mDiscrip = catigorydiscrip[position];
+//
+//                // String mDesc = mDescTv.getText().toString();
+//
+//
+//                //pass this data to new activity
+//                Intent intent = new Intent(view.getContext(), ItemsListActivity.class);
+//                String title = getIntent().getStringExtra("name");
+//
+//                intent.putExtra("localRef", title); // put name
+//                intent.putExtra("category", mCategory); // put name
+//
+//
+//                startActivity(intent); //start activity
+//
+//
+//            }
+//        });
 
 ////////////////////////////oncreate() end ////////////////////////////
     }

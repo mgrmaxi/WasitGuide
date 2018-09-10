@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ public class LocalsActivity extends BaseActivity {
     }
 
 
-    protected ListView localsList;
+    protected GridView localsList;
     String[] localsNames = {"قضاء الكوت",
             "قضاء الصويرة",
             "قضاء الحي",
@@ -48,24 +49,24 @@ public class LocalsActivity extends BaseActivity {
             "ناحية البشائر",
     };
 
-    String[] summery = {"الكوت",
-            "قضاء الصويرة",
-            "قضاء الحي",
-            "قضاء العزيزية",
-            "قضاء النعمانية",
-            "قضاء بدرة",
-            "ناحية تاج الدين",
-            "ناحية الشحيمية",
-            "ناحية الزبيدية",
-            "ناحية الدبوني",
-            "ناحية الاحرار",
-            "ناحية شيخ سعد",
-            "ناحية واسط",
-            "ناحية الموفقية",
-            "ناحية جصان",
-            "ناحية زرباطية",
-            "ناحية البشائر",
-    };
+//    String[] summery = {"الكوت",
+//            "قضاء الصويرة",
+//            "قضاء الحي",
+//            "قضاء العزيزية",
+//            "قضاء النعمانية",
+//            "قضاء بدرة",
+//            "ناحية تاج الدين",
+//            "ناحية الشحيمية",
+//            "ناحية الزبيدية",
+//            "ناحية الدبوني",
+//            "ناحية الاحرار",
+//            "ناحية شيخ سعد",
+//            "ناحية واسط",
+//            "ناحية الموفقية",
+//            "ناحية جصان",
+//            "ناحية زرباطية",
+//            "ناحية البشائر",
+//    };
     int[] localsImages = {
             R.drawable.a01,
             R.drawable.a02,
@@ -104,7 +105,7 @@ public class LocalsActivity extends BaseActivity {
                 //get data from list
                 String mTitle = localsNames[position];
                 String mImage = getString(localsImages[position]);
-                String mDiscrip = summery[position];
+//                String mDiscrip = summery[position];
 
                 // String mDesc = mDescTv.getText().toString();
 
@@ -113,7 +114,7 @@ public class LocalsActivity extends BaseActivity {
                 Intent intent = new Intent(view.getContext(), CouncilActivity.class);
                 intent.putExtra("name", mTitle); // put name
                 intent.putExtra("image", mImage); // put image
-                intent.putExtra("description", mDiscrip); // put discrip
+//                intent.putExtra("description", mDiscrip); // put discrip
                 Log.i("nummmmmmm", getString(localsImages[position]));
 
                 //intent.putExtra("description", mDesc); //put description
@@ -151,11 +152,11 @@ public class LocalsActivity extends BaseActivity {
 
             ImageView image = view.findViewById(R.id.localimage);
             TextView Name = view.findViewById(R.id.localNametext);
-            TextView summry = view.findViewById(R.id.summeryText);
+//            TextView summry = view.findViewById(R.id.summeryText);
 
             image.setImageResource(localsImages[position]);
             Name.setText(localsNames[position]);
-            summry.setText(summery[position]);
+//            summry.setText(summery[position]);
 
             return view;
         }

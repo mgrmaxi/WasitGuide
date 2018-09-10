@@ -23,22 +23,23 @@
             tools:layout_editor_absoluteX="218dp"
             tools:layout_editor_absoluteY="344dp" />
 
-        <ListView
+        <GridView
             android:id="@+id/localsList"
-            style="@android:style/Widget.DeviceDefault.ExpandableListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:dividerHeight="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:columnWidth="170dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:numColumns="5"
+            android:stretchMode="spacingWidthUniform"
+            android:verticalSpacing="20dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

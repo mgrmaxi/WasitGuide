@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class CouncilActivity extends BaseActivity {
     TextView mtitle;
     ImageView mimage;
     TextView mdiscripText;
-    protected ListView categoryList;
+    protected GridView categoryList;
 
 
     String[] catigoryNames = {"المؤسسات الحكومية",
@@ -43,16 +44,16 @@ public class CouncilActivity extends BaseActivity {
 
     };
 
-    String[] catigorydiscrip = {"ومنظمات المجتمع المدني",
-            "",
-            "",
-            " ",
-            " ",
-            " ",
-            " ",
-
-
-    };
+//    String[] catigorydiscrip = {"ومنظمات المجتمع المدني",
+//            "",
+//            "",
+//            " ",
+//            " ",
+//            " ",
+//            " ",
+//
+//
+//    };
 
     int[] catigoryImages = {R.drawable.s1,
             R.drawable.s2,
@@ -84,20 +85,21 @@ public class CouncilActivity extends BaseActivity {
         String title = getIntent().getStringExtra("name");
         mtitle.setText(title);
 
-        String image = getIntent().getStringExtra("image");
-        String conimage = image.substring(13, 16);
-
-        int id = getResources().getIdentifier(conimage, "drawable", this.getPackageName());
-        if (id != 0) {
-            mimage.setImageResource(id);
-
-        } else {
-            mimage.setImageResource(R.drawable.a07);
-        }
+//        String image = getIntent().getStringExtra("image");
+//        String conimage = image.substring(13, 16);
+//
+//        int id = getResources().getIdentifier(conimage, "drawable", this.getPackageName());
+//        if (id != 0) {
+//            mimage.setImageResource(id);
+//
+//        } else {
+//            mimage.setImageResource(R.drawable.a07);
+//        }
 //TODO add all locals
         switch (title) {
             case "قضاء الكوت":
                 mdiscripText.setText(R.string.kut_info);
+                mimage.setImageResource(R.drawable.a01);
                 break;
         }
 
@@ -109,9 +111,9 @@ public class CouncilActivity extends BaseActivity {
                 //get data from list
                 String mCategory = catigoryNames[position];
                 String mImage = getString(catigoryImages[position]);
-                String mDiscrip = catigorydiscrip[position];
+//                String mDiscrip = catigorydiscrip[position];
 
-                // String mDesc = mDescTv.getText().toString();
+
 
 
                 //pass this data to new activity
@@ -161,7 +163,7 @@ public class CouncilActivity extends BaseActivity {
 
             image.setImageResource(catigoryImages[position]);
             Name.setText(catigoryNames[position]);
-            summry.setText(catigorydiscrip[position]);
+           // summry.setText(catigorydiscrip[position]);
 
             return view;
         }
