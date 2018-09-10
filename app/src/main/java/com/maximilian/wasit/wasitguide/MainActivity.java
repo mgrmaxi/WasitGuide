@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -35,6 +37,7 @@ public class MainActivity extends BaseActivity {
     ScrollView scrollView;
     ImageButton getlocalsbtn;
     ImageView mapImage;
+    GridView mainGrid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +49,18 @@ public class MainActivity extends BaseActivity {
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
         mapImage = findViewById(R.id.mapimage);
+        mainGrid = findViewById(R.id.mainGrid);
 
 //===================================logo at top of activity ===============================
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.applilogo_round);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 //===================================foreground animated image ==============================
+
         Display display = getWindowManager().getDefaultDisplay();
         forgroundImage.animate().translationYBy(-display.getHeight()).setDuration(1000).setStartDelay(3000);
+
+//=====================================image with linke ============================
 
         mapImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +69,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
+//=====================================button ============================
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {  // go to locals activity
             public void onClick(View view) {
 
@@ -72,7 +79,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-//=================================scrolle code ======================================
+//================================= button scrolle code ======================================
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -90,6 +97,9 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+////////////////////////////////////////////////////////////////////////////
+
 
 ////////////////////////////oncreate() end ////////////////////////////
     }

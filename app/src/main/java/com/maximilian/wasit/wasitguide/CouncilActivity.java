@@ -37,7 +37,7 @@ public class CouncilActivity extends BaseActivity {
             "المستشفيات والمراكز الصحية",
             "محطات الوقود والكراجات",
             "الفنادق والمطاعم",
-            "المتنزهات العامة",
+            "الاماكن الترفيهية",
             "الجامعات والمدارس",
             "المراكز الدينية والسياحية",
 
@@ -81,7 +81,7 @@ public class CouncilActivity extends BaseActivity {
         mdiscripText = findViewById(R.id.council_discripText);
 
 
-        String title = getIntent().getStringExtra("title");
+        String title = getIntent().getStringExtra("name");
         mtitle.setText(title);
 
         String image = getIntent().getStringExtra("image");
@@ -116,15 +116,10 @@ public class CouncilActivity extends BaseActivity {
 
                 //pass this data to new activity
                 Intent intent = new Intent(view.getContext(), ItemsListActivity.class);
-                String title = getIntent().getStringExtra("title");
+                String title = getIntent().getStringExtra("name");
 
-                intent.putExtra("localRef", title); // put title
-                intent.putExtra("category", mCategory); // put title
-
-
-//                intent.putExtra("image", mImage); // put image
-//                intent.putExtra("discrip", mDiscrip); // put discrip
-                //  Log.i("nummmmmmm", getString(localsImages[position]));
+                intent.putExtra("localRef", title); // put name
+                intent.putExtra("category", mCategory); // put name
 
 
                 startActivity(intent); //start activity

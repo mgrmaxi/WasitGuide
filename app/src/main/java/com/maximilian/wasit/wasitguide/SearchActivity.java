@@ -85,7 +85,7 @@ public class SearchActivity extends BaseActivity {
         //convert string entered in SearchView to lowercase
         String query = searchText.toLowerCase();
 
-        Query firebaseSearchQuery = mDatabase.orderByChild("title").startAt(query).endAt(query + "\uf8ff");
+        Query firebaseSearchQuery = mDatabase.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
 
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(
@@ -97,7 +97,7 @@ public class SearchActivity extends BaseActivity {
                 ) {
                     @Override
                     protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getApplicationContext(), model.getTitle(), model.getImage());
+                        viewHolder.setDetails(getApplicationContext(), model.getName(), model.getImage());
 
                     }
 
@@ -113,18 +113,18 @@ public class SearchActivity extends BaseActivity {
                                 //Views
 
                                 //get data from views
-                                String mTitle = getItem(position).getTitle();
+                                String mTitle = getItem(position).getName();
                                 String mInfo = getItem(position).getInfo();
                                 String mImage = getItem(position).getImage();
-                                String mDesc = getItem(position).getDscrip();
+                                String mDesc = getItem(position).getDescription();
 
 
                                 //pass this data to new activity
                                 Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
-                                intent.putExtra("title", mTitle); // put title
+                                intent.putExtra("name", mTitle); // put name
                                 intent.putExtra("info", mInfo); //put bitmap url
                                 intent.putExtra("image", mImage); //put bitmap url
-                                intent.putExtra("dscrip", mDesc); //put bitmap url
+                                intent.putExtra("description", mDesc); //put bitmap url
                                 startActivity(intent); //start activity
 
 
@@ -160,7 +160,7 @@ public class SearchActivity extends BaseActivity {
 //                ) {
 //                    @Override
 //                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-//                        viewHolder.setDetails(getApplicationContext(),model.getTitle(),model.getImage());
+//                        viewHolder.setDetails(getApplicationContext(),model.getName(),model.getImage());
 //                    }
 //
 //                    @Override
@@ -173,14 +173,14 @@ public class SearchActivity extends BaseActivity {
 //                                //Views
 //
 //                                //get data from views
-//                                String mTitle = getItem(position).getTitle();
+//                                String mTitle = getItem(position).getName();
 //                                String mImage = getItem(position).getImage();
 //                                // String mDesc = mDescTv.getText().toString();
 //
 //
 //                                //pass this data to new activity
 //                                Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
-//                                intent.putExtra("title", mTitle); // put title
+//                                intent.putExtra("name", mTitle); // put name
 //                                intent.putExtra("image", mImage); //put bitmap url
 //
 //                                //intent.putExtra("description", mDesc); //put description

@@ -14,7 +14,8 @@
             android:layout_margin="16dp"
             android:layout_marginStart="16dp"
             android:padding="2dp"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:layout_marginLeft="16dp" />
 
         <TextView
             android:id="@+id/summeryText"
@@ -23,7 +24,8 @@
             android:layout_alignEnd="@+id/localNametext"
             android:layout_below="@+id/localNametext"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_alignRight="@+id/localNametext" />
 
         <TextView
             android:id="@+id/localNametext"
@@ -35,7 +37,9 @@
             android:layout_marginTop="35dp"
             android:text="localNametext"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

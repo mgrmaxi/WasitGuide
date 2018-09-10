@@ -111,9 +111,9 @@ public class LocalsActivity extends BaseActivity {
 
                 //pass this data to new activity
                 Intent intent = new Intent(view.getContext(), CouncilActivity.class);
-                intent.putExtra("title", mTitle); // put title
+                intent.putExtra("name", mTitle); // put name
                 intent.putExtra("image", mImage); // put image
-                intent.putExtra("discrip", mDiscrip); // put discrip
+                intent.putExtra("description", mDiscrip); // put discrip
                 Log.i("nummmmmmm", getString(localsImages[position]));
 
                 //intent.putExtra("description", mDesc); //put description

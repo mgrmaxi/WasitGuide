@@ -41,10 +41,10 @@ public class ItemDetailActivity extends BaseActivity {
 
         //get data from intent
 
-        String title = getIntent().getStringExtra("title");
+        String title = getIntent().getStringExtra("name");
         String info = getIntent().getStringExtra("info");
         String image = getIntent().getStringExtra("image");
-        String detail = getIntent().getStringExtra("dscrip");
+        String detail = getIntent().getStringExtra("description");
 
         ;
 

@@ -2,9 +2,9 @@ package com.maximilian.wasit.wasitguide;
 
 public class Model {
 
-    String title;
+    String name;
     String image;
-    String dscrip;
+    String description;
     String info;
 
 
@@ -13,12 +13,12 @@ public class Model {
     }
 
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getImage() {
@@ -29,12 +29,12 @@ public class Model {
         this.image = image;
     }
 
-    public String getDscrip() {
-        return dscrip;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDscrip(String dscrip) {
-        this.dscrip = dscrip;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getInfo() {
