@@ -17,6 +17,11 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends BaseActivity {
     //############################################## menu ######################################
@@ -37,6 +42,7 @@ public class MainActivity extends BaseActivity {
     ScrollView scrollView;
     ImageButton getlocalsbtn;
     ImageView mapImage;
+    List<Integer> lstImages = new ArrayList<>(); // for slider
     protected GridView categoryList;
 
     @Override
@@ -73,6 +79,18 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+
+//===================================== slider images =============================
+
+        sliderImages();
+
+        HorizontalInfiniteCycleViewPager pager = (HorizontalInfiniteCycleViewPager)findViewById(R.id.horizontal_cycle);
+        SliderAdapter adapter = new SliderAdapter(lstImages,getBaseContext());
+        pager.setAdapter(adapter);
+
+
+
+
 //=====================================button ============================
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {  // go to locals activity
             public void onClick(View view) {
@@ -102,7 +120,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////click items in list ///////////////////////////////////////
         categoryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -132,7 +150,11 @@ public class MainActivity extends BaseActivity {
 ////////////////////////////oncreate() end ////////////////////////////
     }
 
-
+    private void sliderImages() {
+        lstImages.add(R.drawable.maz);
+        lstImages.add(R.drawable.kut);
+        lstImages.add(R.drawable.city);
+    }
     //=======================================open app ( map app) and go to an custom location==============
     public void openMap(String uri) {
         try {

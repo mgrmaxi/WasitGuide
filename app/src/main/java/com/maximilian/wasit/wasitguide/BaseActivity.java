@@ -1,8 +1,11 @@
 package com.maximilian.wasit.wasitguide;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,9 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class BaseActivity extends AppCompatActivity {
-    String[] localsNames = {"قضاء الكوت",
-            "واسط",
+    String[] localsNames = {
+            "قضاء الكوت",
             "قضاء الصويرة",
             "قضاء الحي",
             "قضاء العزيزية",
@@ -33,24 +38,7 @@ public class BaseActivity extends AppCompatActivity {
             "ناحية البشائر",
     };
 
-    //    String[] summery = {"الكوت",
-//            "قضاء الصويرة",
-//            "قضاء الحي",
-//            "قضاء العزيزية",
-//            "قضاء النعمانية",
-//            "قضاء بدرة",
-//            "ناحية تاج الدين",
-//            "ناحية الشحيمية",
-//            "ناحية الزبيدية",
-//            "ناحية الدبوني",
-//            "ناحية الاحرار",
-//            "ناحية شيخ سعد",
-//            "ناحية واسط",
-//            "ناحية الموفقية",
-//            "ناحية جصان",
-//            "ناحية زرباطية",
-//            "ناحية البشائر",
-//    };
+
     int[] localsImages = {
             R.drawable.a01,
             R.drawable.a02,
@@ -70,41 +58,29 @@ public class BaseActivity extends AppCompatActivity {
             R.drawable.a15,
             R.drawable.a16,
             R.drawable.a17,
-
     };
 
 
 
-    String[] catigoryNames = {"المؤسسات الحكومية",
+    String[] catigoryNames = {
+            "المؤسسات الحكومية",
             "المستشفيات والمراكز الصحية",
             "محطات الوقود والكراجات",
             "الفنادق والمطاعم",
             "الاماكن الترفيهية",
             "الجامعات والمدارس",
             "المراكز الدينية والسياحية",
-
     };
 
-//    String[] catigorydiscrip = {"ومنظمات المجتمع المدني",
-//            "",
-//            "",
-//            " ",
-//            " ",
-//            " ",
-//            " ",
-//
-//
-//    };
 
-    int[] catigoryImages = {R.drawable.s1,
+    int[] catigoryImages = {
+            R.drawable.s1,
             R.drawable.s2,
             R.drawable.s3,
             R.drawable.s4,
             R.drawable.s5,
             R.drawable.s5,
             R.drawable.s5,
-
-
     };
 
     @Override
@@ -118,54 +94,58 @@ public class BaseActivity extends AppCompatActivity {
 
 
     //++++++++++++++++++++++++++++menu+++++++++++++++++++++++++++++//
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
 
-        switch (id) {
-            case R.id.search_menu_item:
-                Intent intent = new Intent(BaseActivity.this, SearchActivity.class);
-                BaseActivity.this.startActivity(intent);
-                return true;
-
-            case R.id.About_us_menu_item:
-                if (getClass() == AboutUsActivity.class) {
-                    Toast.makeText(this, "انت في نفس الصفحة", Toast.LENGTH_SHORT).show();
-                } else {
-                    intent = new Intent(BaseActivity.this, AboutUsActivity.class);
-                    BaseActivity.this.startActivity(intent);
-                }
-                return true;
-            case R.id.list:
-                if (getClass() == DistrictsListActivity.class) {
-                    Toast.makeText(this, "انت في نفس الصفحة", Toast.LENGTH_SHORT).show();
-                } else {
-                    intent = new Intent(BaseActivity.this, DistrictsListActivity.class);
-                    BaseActivity.this.startActivity(intent);
-                }
-                return true;
-            case R.id.Home_menu_item:
-                if (getClass() == MainActivity.class) {
-                    Toast.makeText(this, "انت بالفعل في الصفحة الرئيسية", Toast.LENGTH_SHORT).show();
-                } else {
-                    intent = new Intent(BaseActivity.this, MainActivity.class);
-                    BaseActivity.this.startActivity(intent);
-                }
-            default:
-
-                return super.onOptionsItemSelected(item);
-
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate(R.menu.menu, menu);
+            return true;
         }
-    }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+
+            switch (id) {
+                case R.id.search_menu_item:
+                    Intent intent = new Intent(BaseActivity.this, SearchActivity.class);
+                    BaseActivity.this.startActivity(intent);
+                    return true;
+
+                case R.id.About_us_menu_item:
+                    if (getClass() == AboutUsActivity.class) {
+                        Toast.makeText(this, "انت في نفس الصفحة", Toast.LENGTH_SHORT).show();
+                    } else {
+                        intent = new Intent(BaseActivity.this, AboutUsActivity.class);
+                        BaseActivity.this.startActivity(intent);
+                    }
+                    return true;
+                case R.id.list:
+                    if (getClass() == DistrictsListActivity.class) {
+                        Toast.makeText(this, "انت في نفس الصفحة", Toast.LENGTH_SHORT).show();
+                    } else {
+                        intent = new Intent(BaseActivity.this, DistrictsListActivity.class);
+                        BaseActivity.this.startActivity(intent);
+                    }
+                    return true;
+                case R.id.Home_menu_item:
+                    if (getClass() == MainActivity.class) {
+                        Toast.makeText(this, "انت في الصفحة الرئيسية", Toast.LENGTH_SHORT).show();
+                    } else {
+                        intent = new Intent(BaseActivity.this, MainActivity.class);
+                        BaseActivity.this.startActivity(intent);
+                    }
+                default:
+
+                    return super.onOptionsItemSelected(item);
+
+            }
+        }
 
 
 
+
+///////////////////////////////////Custom Adapters for lists ///////////////////////////
 
     class CustomAdapter extends BaseAdapter {
 
@@ -227,14 +207,55 @@ public class BaseActivity extends AppCompatActivity {
 
             ImageView image = view.findViewById(R.id.localimage);
             TextView Name = view.findViewById(R.id.localNametext);
-            TextView summry = view.findViewById(R.id.summeryText);
+
 
             image.setImageResource(catigoryImages[position]);
             Name.setText(catigoryNames[position]);
-            // summry.setText(catigorydiscrip[position]);
+
 
             return view;
         }
 
     }
+
+
+    public class SliderAdapter  extends PagerAdapter {
+
+        List<Integer> lstImages;
+        Context context;
+        LayoutInflater layoutInflater;
+
+        public SliderAdapter(List<Integer> lstImages, Context context) {
+            this.lstImages = lstImages;
+            this.context = context;
+            layoutInflater = LayoutInflater.from(context);
+        }
+
+        @Override
+        public int getCount() {
+            return lstImages.size();
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view.equals(object);
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View)object);
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = layoutInflater.inflate(R.layout.slider_item,container,false);
+            ImageView imageView = view.findViewById(R.id.imageView);
+            imageView.setImageResource(lstImages.get(position));
+            container.addView(view);
+            return view;
+        }
+    }
+
+
+
 }
