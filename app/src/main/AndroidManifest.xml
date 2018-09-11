@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LocalsActivity"
+            android:name=".DistrictsListActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
@@ -28,7 +28,7 @@
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CouncilActivity"
+            android:name=".DistrictActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity

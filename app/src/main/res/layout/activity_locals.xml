@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocalsActivity">
+    tools:context=".DistrictsListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:columnWidth="170dp"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:numColumns="5"
+            android:numColumns="2"
             android:stretchMode="spacingWidthUniform"
             android:verticalSpacing="20dp" />
     </LinearLayout>

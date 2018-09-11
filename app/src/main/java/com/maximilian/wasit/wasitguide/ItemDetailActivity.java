@@ -39,7 +39,7 @@ public class ItemDetailActivity extends BaseActivity {
         itemimage = findViewById(R.id.itemImage);
 
 
-        //get data from intent
+        //get data from intent items list
 
         String title = getIntent().getStringExtra("name");
         String info = getIntent().getStringExtra("info");

@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
     ScrollView scrollView;
     ImageButton getlocalsbtn;
     ImageView mapImage;
-    GridView mainGrid;
+    protected GridView categoryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,10 @@ public class MainActivity extends BaseActivity {
         scrollView = findViewById(R.id.scrollView3);
         mapImage = findViewById(R.id.mapimage);
 
+//////////////////////////list of category
+        categoryList = findViewById(R.id.categoryList);
+        CustomAdapter2 customAdapter = new CustomAdapter2();
+        categoryList.setAdapter(customAdapter);
 
 //===================================logo at top of activity ===============================
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -74,7 +78,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(MainActivity.this, LocalsActivity.class);
+                Intent intent = new Intent(MainActivity.this, DistrictsListActivity.class);
                 MainActivity.this.startActivity(intent);
             }
         });
@@ -99,31 +103,31 @@ public class MainActivity extends BaseActivity {
         });
 
 ////////////////////////////////////////////////////////////////////////////
-//        mainGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                //get data from list
-//                String mCategory = catigoryNames[position];
-//                String mImage = getString(catigoryImages[position]);
+        categoryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //get data from list
+                String mCategory = catigoryNames[position];
+                String mImage = getString(catigoryImages[position]);
 //                String mDiscrip = catigorydiscrip[position];
-//
-//                // String mDesc = mDescTv.getText().toString();
-//
-//
-//                //pass this data to new activity
-//                Intent intent = new Intent(view.getContext(), ItemsListActivity.class);
-//                String title = getIntent().getStringExtra("name");
-//
-//                intent.putExtra("localRef", title); // put name
-//                intent.putExtra("category", mCategory); // put name
-//
-//
-//                startActivity(intent); //start activity
-//
-//
-//            }
-//        });
+
+
+
+
+                //pass this data to new activity
+                Intent intent = new Intent(view.getContext(), ItemsListActivity.class);
+                String title = "واسط";
+
+                intent.putExtra("localRef", title); // put name
+                intent.putExtra("category", mCategory); // put name
+
+
+                startActivity(intent); //start activity
+
+
+            }
+        });
 
 ////////////////////////////oncreate() end ////////////////////////////
     }
