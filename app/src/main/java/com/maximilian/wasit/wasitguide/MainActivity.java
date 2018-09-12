@@ -52,6 +52,7 @@ public class MainActivity extends BaseActivity {
 
 
         forgroundImage = findViewById(R.id.forgroundimage);
+
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
         mapImage = findViewById(R.id.mapimage);
@@ -60,6 +61,7 @@ public class MainActivity extends BaseActivity {
         categoryList = findViewById(R.id.categoryList);
         CustomAdapter2 customAdapter = new CustomAdapter2();
         categoryList.setAdapter(customAdapter);
+
 
 //===================================logo at top of activity ===============================
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -84,9 +86,11 @@ public class MainActivity extends BaseActivity {
 
         sliderImages();
 
-        HorizontalInfiniteCycleViewPager pager = (HorizontalInfiniteCycleViewPager)findViewById(R.id.horizontal_cycle);
+        HorizontalInfiniteCycleViewPager pager = findViewById(R.id.horizontal_cycle);
+        HorizontalInfiniteCycleViewPager pager2 = findViewById(R.id.horizontal_cycle2);
         SliderAdapter adapter = new SliderAdapter(lstImages,getBaseContext());
         pager.setAdapter(adapter);
+        pager2.setAdapter(adapter);
 
 
 

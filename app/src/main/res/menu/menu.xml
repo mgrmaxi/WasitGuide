@@ -5,23 +5,27 @@
     <item
         android:id="@+id/search_menu_item"
         android:name="Search"
+        android:title="بحث"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/About_us_menu_item"
         android:name="About us"
+        android:title="عنـــا"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/Home_menu_item"
         android:name="Home"
         android:icon="@drawable/home"
+        android:title="الصفحة الرئيسية"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/list"
-        android:icon="@drawable/list"
         android:name="@+id/list"
+        android:icon="@drawable/list"
+        android:title="الوحدات الادارية"
         app:showAsAction="always" />
 
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +42,6 @@ public class BaseActivity extends AppCompatActivity {
 
     int[] localsImages = {
             R.drawable.a01,
-            R.drawable.a02,
             R.drawable.a02,
             R.drawable.a03,
             R.drawable.a04,
@@ -90,7 +90,7 @@ public class BaseActivity extends AppCompatActivity {
 
 //TODO make spinner for choose locals and category
 
-    }
+        }
 
 
     //++++++++++++++++++++++++++++menu+++++++++++++++++++++++++++++//

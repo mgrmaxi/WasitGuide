@@ -30,7 +30,7 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="500dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="bottom"
             android:alpha=".3"
