@@ -72,13 +72,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|right"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="0dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:text="واســـط"
                     android:textColor="@android:color/white"
                     android:textSize="40sp"
                     android:textStyle="bold"
+                    app:fontFamily="@font/cairobold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.971"
@@ -116,6 +117,7 @@
                             android:padding="10dp"
                             android:text="@string/About_wasit"
                             android:textSize="20sp"
+                            app:fontFamily="@font/markazi"
                             tools:layout_editor_absoluteX="13dp" />
 
                     </LinearLayout>
@@ -189,6 +191,7 @@
                         android:padding="10dp"
                         android:text="@string/Aria_title"
                         android:textSize="30sp"
+                        app:fontFamily="@font/cairoregular"
                         tools:layout_editor_absoluteX="13dp" />
 
                     <TextView
@@ -200,6 +203,7 @@
                         android:padding="10dp"
                         android:text="@string/aria_info"
                         android:textSize="20sp"
+                        app:fontFamily="@font/markazi"
                         tools:layout_editor_absoluteX="13dp" />
 
                     <TextView
@@ -211,6 +215,7 @@
                         android:padding="10dp"
                         android:text="@string/farm_title"
                         android:textSize="30sp"
+                        app:fontFamily="@font/cairoregular"
                         tools:layout_editor_absoluteX="13dp" />
 
                     <TextView
@@ -222,6 +227,7 @@
                         android:padding="10dp"
                         android:text="@string/farm_info"
                         android:textSize="20sp"
+                        app:fontFamily="@font/markazi"
                         tools:layout_editor_absoluteX="13dp" />
                 </LinearLayout>
             </LinearLayout>

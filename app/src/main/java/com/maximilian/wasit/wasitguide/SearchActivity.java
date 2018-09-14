@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -33,14 +37,44 @@ public class SearchActivity extends BaseActivity {
 
     private SearchView mSearchField;
     private RecyclerView mResultList;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mSearchDatabase;
+//    private Spinner spinner;
+//    ArrayAdapter<String> adapter;
+////   String catigory = "المؤسسات ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mDatabase = FirebaseDatabase.getInstance().getReference("قضاء الكوت").child("المؤسسات الحكومية");
+
+
+/**        spinner= findViewById(R.id.spinner1);
+
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,localsNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        CustomAdapter adapter = new CustomAdapter();
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+//
+                String CAT = (catigoryNames[position]).toString();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+//                catigory ="";
+            }
+        });
+
+*/
+
+        mSearchDatabase = FirebaseDatabase.getInstance().getReference("واسط");
 
 //TODO
         mSearchField = findViewById(R.id.searchEditText);
@@ -71,7 +105,7 @@ public class SearchActivity extends BaseActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //Filter as you type
+                //Filter as you typeLog.i("this is infoooo2", name);
                 firebaseSearch(newText);
                 return false;
             }
@@ -85,7 +119,7 @@ public class SearchActivity extends BaseActivity {
         //convert string entered in SearchView to lowercase
         String query = searchText.toLowerCase();
 
-        Query firebaseSearchQuery = mDatabase.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
+        Query firebaseSearchQuery = mSearchDatabase.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
 
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(

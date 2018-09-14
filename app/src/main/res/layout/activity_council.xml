@@ -47,6 +47,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                app:fontFamily="@font/cairobold"
                 tools:layout_editor_absoluteX="218dp"
                 tools:layout_editor_absoluteY="344dp" />
 
@@ -59,6 +60,7 @@
                 android:text="@string/Abuot_us_discription"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:fontFamily="@font/markazi"
                 tools:layout_editor_absoluteX="218dp"
                 tools:layout_editor_absoluteY="344dp" />
 
@@ -74,6 +76,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                app:fontFamily="@font/cairoregular"
                 tools:layout_editor_absoluteX="218dp"
                 tools:layout_editor_absoluteY="344dp" />
 

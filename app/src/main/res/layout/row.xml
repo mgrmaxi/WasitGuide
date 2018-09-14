@@ -56,6 +56,7 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:fontFamily="@font/cairobold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.974"
             app:layout_constraintStart_toStartOf="parent"
