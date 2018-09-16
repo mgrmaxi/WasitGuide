@@ -5,15 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -148,7 +144,7 @@ public class DistrictActivity extends BaseActivity {
                                 String mTitle = getItem(position).getName();
                                 String mInfo = getItem(position).getInfo();
                                 String mImage = getItem(position).getImage();
-                                String mDesc = getItem(position).getDescription();
+                                String mDesc = getItem(position).getLocation();
 
 
                                 //pass this data to new activity
@@ -156,10 +152,10 @@ public class DistrictActivity extends BaseActivity {
                                 intent.putExtra("name", mTitle); // put name
                                 intent.putExtra("info", mInfo); //put bitmap url
                                 intent.putExtra("image", mImage); //put bitmap url
-                                intent.putExtra("description", mDesc); //put bitmap url
+                                intent.putExtra("location", mDesc); //put bitmap url
 
 
-                                //intent.putExtra("description", mDesc); //put description
+                                //intent.putExtra("location", mDesc); //put location
                                 startActivity(intent); //start activity
 
 

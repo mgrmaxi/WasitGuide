@@ -4,7 +4,7 @@ public class Model {
 
     String name;
     String image;
-    String description;
+    String location;
     String info;
 
 
@@ -29,12 +29,12 @@ public class Model {
         this.image = image;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLocation() {
+        return location;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getInfo() {

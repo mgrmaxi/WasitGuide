@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,12 +88,12 @@ public class MainActivity extends BaseActivity {
         sliderImages();
 
         HorizontalInfiniteCycleViewPager pager = findViewById(R.id.horizontal_cycle);
-        HorizontalInfiniteCycleViewPager pager2 = findViewById(R.id.horizontal_cycle2);
+
         SliderAdapter adapter = new SliderAdapter(lstImages,getBaseContext());
         pager.setAdapter(adapter);
-        pager2.setAdapter(adapter);
 
-
+        pager.startAutoScroll(true);
+        pager.setScrollDuration(6000);
 
 
 //=====================================button ============================

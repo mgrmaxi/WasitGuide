@@ -22,6 +22,7 @@ import com.google.firebase.database.Query;
 
 
 public class SearchActivity extends BaseActivity {
+    String defaultCategory = "المؤسسات الحكومية";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,10 +38,9 @@ public class SearchActivity extends BaseActivity {
 
     private SearchView mSearchField;
     private RecyclerView mResultList;
-    private DatabaseReference mSearchDatabase;
-//    private Spinner spinner;
-//    ArrayAdapter<String> adapter;
-////   String catigory = "المؤسسات ";
+    private DatabaseReference databaseReference;
+    private Spinner spinner;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,33 +49,31 @@ public class SearchActivity extends BaseActivity {
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-/**        spinner= findViewById(R.id.spinner1);
+       spinner= findViewById(R.id.spinner1);
 
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,localsNames);
+        adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,catigoryNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        CustomAdapter adapter = new CustomAdapter();
-        spinner.setAdapter(adapter);
+        CustomAdapter2 adapter = new CustomAdapter2();
 
+        spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
 //
-                String CAT = (catigoryNames[position]).toString();
-
+                String category = (catigoryNames[position]).toString();
+                databaseReference = FirebaseDatabase.getInstance().getReference("واسط").child(category);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-//                catigory ="";
+
             }
-        });
-
-*/
-
-        mSearchDatabase = FirebaseDatabase.getInstance().getReference("واسط");
-
+        }
+        );
+        databaseReference = FirebaseDatabase.getInstance().getReference("واسط").child(defaultCategory);
 //TODO
         mSearchField = findViewById(R.id.searchEditText);
         mResultList = findViewById(R.id.searchRecycle);
@@ -105,7 +103,7 @@ public class SearchActivity extends BaseActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //Filter as you typeLog.i("this is infoooo2", name);
+
                 firebaseSearch(newText);
                 return false;
             }
@@ -119,8 +117,8 @@ public class SearchActivity extends BaseActivity {
         //convert string entered in SearchView to lowercase
         String query = searchText.toLowerCase();
 
-        Query firebaseSearchQuery = mSearchDatabase.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
-
+        Query firebaseSearchQuery = databaseReference.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
+        Log.i("looooooog222",databaseReference.toString());
         FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<Model, ViewHolder>(
                         Model.class,
@@ -150,15 +148,15 @@ public class SearchActivity extends BaseActivity {
                                 String mTitle = getItem(position).getName();
                                 String mInfo = getItem(position).getInfo();
                                 String mImage = getItem(position).getImage();
-                                String mDesc = getItem(position).getDescription();
+                                String mDesc = getItem(position).getLocation();
 
 
                                 //pass this data to new activity
-                                Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
+                                Intent intent = new Intent(view.getContext(),ItemDetailActivity.class);
                                 intent.putExtra("name", mTitle); // put name
                                 intent.putExtra("info", mInfo); //put bitmap url
                                 intent.putExtra("image", mImage); //put bitmap url
-                                intent.putExtra("description", mDesc); //put bitmap url
+                                intent.putExtra("location", mDesc); //put bitmap url
                                 startActivity(intent); //start activity
 
 
@@ -217,7 +215,7 @@ public class SearchActivity extends BaseActivity {
 //                                intent.putExtra("name", mTitle); // put name
 //                                intent.putExtra("image", mImage); //put bitmap url
 //
-//                                //intent.putExtra("description", mDesc); //put description
+//                                //intent.putExtra("location", mDesc); //put location
 //                                startActivity(intent); //start activity
 //
 //

@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import static android.webkit.URLUtil.isValidUrl;
+
 public class ViewHolder extends RecyclerView.ViewHolder {
 
     View mView;
@@ -44,7 +46,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
 
         mTitleTv.setText(title);
-        Picasso.get().load(image).into(mImageView);
+        if (isValidUrl(image)){
+            Picasso.get().load(image).into(mImageView);
+        }
+
 
 
     }

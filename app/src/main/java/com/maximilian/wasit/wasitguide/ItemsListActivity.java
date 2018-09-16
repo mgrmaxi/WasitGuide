@@ -74,7 +74,7 @@ public class ItemsListActivity extends AppCompatActivity {
                                 String mTitle = getItem(position).getName();
                                 String mInfo = getItem(position).getInfo();
                                 String mImage = getItem(position).getImage();
-                                String mDesc = getItem(position).getDescription();
+                                String mDesc = getItem(position).getLocation();
 
 
                                 //pass this data to new activity
@@ -82,10 +82,10 @@ public class ItemsListActivity extends AppCompatActivity {
                                 intent.putExtra("name", mTitle); // put name
                                 intent.putExtra("info", mInfo); //put bitmap url
                                 intent.putExtra("image", mImage); //put bitmap url
-                                intent.putExtra("description", mDesc); //put bitmap url
+                                intent.putExtra("location", mDesc); //put bitmap url
 
 
-                                //intent.putExtra("description", mDesc); //put description
+                                //intent.putExtra("location", mDesc); //put location
                                 startActivity(intent); //start activity
 
 
