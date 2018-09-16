@@ -22,7 +22,7 @@ import com.google.firebase.database.Query;
 
 
 public class SearchActivity extends BaseActivity {
-    String defaultCategory = "المؤسسات الحكومية";
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,8 +39,8 @@ public class SearchActivity extends BaseActivity {
     private SearchView mSearchField;
     private RecyclerView mResultList;
     private DatabaseReference databaseReference;
-    private Spinner spinner;
-    ArrayAdapter<String> adapter;
+    String localRef;
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,31 +49,11 @@ public class SearchActivity extends BaseActivity {
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-       spinner= findViewById(R.id.spinner1);
 
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,catigoryNames);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        CustomAdapter2 adapter = new CustomAdapter2();
+        localRef = getIntent().getStringExtra("localRef");
+        category = getIntent().getStringExtra("category");
 
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-//
-                String category = (catigoryNames[position]).toString();
-                databaseReference = FirebaseDatabase.getInstance().getReference("واسط").child(category);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        }
-        );
-        databaseReference = FirebaseDatabase.getInstance().getReference("واسط").child(defaultCategory);
+        databaseReference = FirebaseDatabase.getInstance().getReference(localRef).child(category);
 //TODO
         mSearchField = findViewById(R.id.searchEditText);
         mResultList = findViewById(R.id.searchRecycle);

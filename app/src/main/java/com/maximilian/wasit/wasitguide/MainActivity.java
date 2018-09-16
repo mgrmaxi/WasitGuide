@@ -92,8 +92,8 @@ public class MainActivity extends BaseActivity {
         SliderAdapter adapter = new SliderAdapter(lstImages,getBaseContext());
         pager.setAdapter(adapter);
 
-        pager.startAutoScroll(true);
-        pager.setScrollDuration(6000);
+//        pager.startAutoScroll(true);
+        pager.setScrollDuration(200);
 
 
 //=====================================button ============================
@@ -116,7 +116,7 @@ public class MainActivity extends BaseActivity {
                         getlocalsbtn.animate().translationY(-50).getStartDelay();
 
                     } else {
-                        getlocalsbtn.animate().translationY(500).getStartDelay();
+                        getlocalsbtn.animate().translationY(600).getStartDelay();
 
                     }
 

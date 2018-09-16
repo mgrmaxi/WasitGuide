@@ -78,11 +78,11 @@ public class DistrictActivity extends BaseActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
 
 
-        localRef = getIntent().getStringExtra("name");
-        category = getIntent().getStringExtra("category");
+//        localRef = getIntent().getStringExtra("name");
+//        category = getIntent().getStringExtra("category");
 
 
-        mRef = mFirebaseDatabase.getReference(localRef).child("المؤسسات الحكومية");
+        mRef = mFirebaseDatabase.getReference(title).child("اهم الاماكن");
 
 //////////
 
