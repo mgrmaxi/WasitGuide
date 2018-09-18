@@ -19,7 +19,7 @@ import android.widget.Toast;
 import java.util.List;
 
 public class BaseActivity extends AppCompatActivity {
-    String[] localsNames = {
+    String[] localsNames = {"",
             "قضاء الكوت",
             "قضاء الصويرة",
             "قضاء الحي",
@@ -41,6 +41,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
     int[] localsImages = {
+            R.drawable.a01,
             R.drawable.a01,
             R.drawable.a02,
             R.drawable.a03,
@@ -107,16 +108,16 @@ public class BaseActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             switch (id) {
-//                case R.id.search_menu_item:
-//                    Intent intent = new Intent(BaseActivity.this, SearchActivity.class);
-//                    BaseActivity.this.startActivity(intent);
-//                    return true;
+                case R.id.search_menu_item:
+                    Intent intent = new Intent(BaseActivity.this, ChooseActivity.class);
+                    BaseActivity.this.startActivity(intent);
+                    return true;
 
                 case R.id.About_us_menu_item:
                     if (getClass() == AboutUsActivity.class) {
                         Toast.makeText(this, "انت في نفس الصفحة", Toast.LENGTH_SHORT).show();
                     } else {
-                        Intent intent = new Intent(BaseActivity.this, AboutUsActivity.class);
+                        intent = new Intent(BaseActivity.this, AboutUsActivity.class);
                         BaseActivity.this.startActivity(intent);
                     }
                     return true;
@@ -124,7 +125,7 @@ public class BaseActivity extends AppCompatActivity {
                     if (getClass() == DistrictsListActivity.class) {
                         Toast.makeText(this, "انت في نفس الصفحة", Toast.LENGTH_SHORT).show();
                     } else {
-                        Intent intent = new Intent(BaseActivity.this, DistrictsListActivity.class);
+                         intent = new Intent(BaseActivity.this, DistrictsListActivity.class);
                         BaseActivity.this.startActivity(intent);
                     }
                     return true;
@@ -132,7 +133,7 @@ public class BaseActivity extends AppCompatActivity {
                     if (getClass() == MainActivity.class) {
                         Toast.makeText(this, "انت في الصفحة الرئيسية", Toast.LENGTH_SHORT).show();
                     } else {
-                        Intent intent = new Intent(BaseActivity.this, MainActivity.class);
+                         intent = new Intent(BaseActivity.this, MainActivity.class);
                         BaseActivity.this.startActivity(intent);
                     }
                 default:

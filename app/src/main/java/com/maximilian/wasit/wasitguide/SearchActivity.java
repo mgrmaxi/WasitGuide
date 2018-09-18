@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.SearchView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -39,8 +40,7 @@ public class SearchActivity extends BaseActivity {
     private SearchView mSearchField;
     private RecyclerView mResultList;
     private DatabaseReference databaseReference;
-    String localRef;
-    String category;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +48,13 @@ public class SearchActivity extends BaseActivity {
         setContentView(R.layout.activity_search);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String distract = getIntent().getStringExtra("localRef");
+        String category = getIntent().getStringExtra("category");
 
-
-        localRef = getIntent().getStringExtra("localRef");
-        category = getIntent().getStringExtra("category");
-
-        databaseReference = FirebaseDatabase.getInstance().getReference(localRef).child(category);
+//Log.i("LLLLLLLLLLog Distract",distract.toString());
+//Log.i("LLLLLLLLLLog Distract",category.toString());
+//
+          databaseReference = FirebaseDatabase.getInstance().getReference(distract).child(category);
 //TODO
         mSearchField = findViewById(R.id.searchEditText);
         mResultList = findViewById(R.id.searchRecycle);
@@ -61,100 +62,91 @@ public class SearchActivity extends BaseActivity {
         mResultList.setHasFixedSize(true);
         mResultList.setLayoutManager(new LinearLayoutManager(this));
 
-//        mSearchBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
 //
-//                String searchText = mSearchField.getQuery().toString();
-//
-//                firebaseSearch(searchText);
-//                Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
 
-        mSearchField.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                firebaseSearch(query);
-                Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
-                return false;
-            }
+            mSearchField.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    firebaseSearch(query);
+                    Toast.makeText(SearchActivity.this, "ok you do it", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
+                @Override
+                public boolean onQueryTextChange(String newText) {
 
-                firebaseSearch(newText);
-                return false;
-            }
-        });
+                    firebaseSearch(newText);
+                    return false;
+                }
+            });
 
 
     }
 
     private void firebaseSearch(String searchText) {
 
-        //convert string entered in SearchView to lowercase
-        String query = searchText.toLowerCase();
+            //convert string entered in SearchView to lowercase
+            String query = searchText.toLowerCase();
 
-        Query firebaseSearchQuery = databaseReference.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
-        Log.i("looooooog222",databaseReference.toString());
-        FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Model, ViewHolder>(
-                        Model.class,
-                        R.layout.row,
-                        ViewHolder.class,
-                        firebaseSearchQuery
+            Query firebaseSearchQuery = databaseReference.orderByChild("name").startAt(query).endAt(query + "\uf8ff");
+            Log.i("looooooog222", databaseReference.toString());
+            FirebaseRecyclerAdapter<Model, ViewHolder> firebaseRecyclerAdapter =
+                    new FirebaseRecyclerAdapter<Model, ViewHolder>(
+                            Model.class,
+                            R.layout.row,
+                            ViewHolder.class,
+                            firebaseSearchQuery
 
-                ) {
-                    @Override
-                    protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
-                        viewHolder.setDetails(getApplicationContext(), model.getName(), model.getImage());
+                    ) {
+                        @Override
+                        protected void populateViewHolder(ViewHolder viewHolder, Model model, int position) {
+                            viewHolder.setDetails(getApplicationContext(), model.getName(), model.getImage());
 
-                    }
+                        }
 
-                    @Override
-                    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                        @Override
+                        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-                        ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
-
-
-                        viewHolder.setOnClickListner(new ViewHolder.ClickListener() {
-                            @Override
-                            public void onItemClick(View view, int position) {
-                                //Views
-
-                                //get data from views
-                                String mTitle = getItem(position).getName();
-                                String mInfo = getItem(position).getInfo();
-                                String mImage = getItem(position).getImage();
-                                String mDesc = getItem(position).getLocation();
+                            ViewHolder viewHolder = super.onCreateViewHolder(parent, viewType);
 
 
-                                //pass this data to new activity
-                                Intent intent = new Intent(view.getContext(),ItemDetailActivity.class);
-                                intent.putExtra("name", mTitle); // put name
-                                intent.putExtra("info", mInfo); //put bitmap url
-                                intent.putExtra("image", mImage); //put bitmap url
-                                intent.putExtra("location", mDesc); //put bitmap url
-                                startActivity(intent); //start activity
+                            viewHolder.setOnClickListner(new ViewHolder.ClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+                                    //Views
+
+                                    //get data from views
+                                    String mTitle = getItem(position).getName();
+                                    String mInfo = getItem(position).getInfo();
+                                    String mImage = getItem(position).getImage();
+                                    String mDesc = getItem(position).getLocation();
 
 
-                            }
-
-                            @Override
-                            public void onItemLongClick(View view, int position) {
-                                //TODO do your own implementaion on long item click
-                            }
-                        });
-
-                        return viewHolder;
-                    }
-
-                };
+                                    //pass this data to new activity
+                                    Intent intent = new Intent(view.getContext(), ItemDetailActivity.class);
+                                    intent.putExtra("name", mTitle); // put name
+                                    intent.putExtra("info", mInfo); //put bitmap url
+                                    intent.putExtra("image", mImage); //put bitmap url
+                                    intent.putExtra("location", mDesc); //put bitmap url
+                                    startActivity(intent); //start activity
 
 
-        mResultList.setAdapter(firebaseRecyclerAdapter);
+                                }
+
+                                @Override
+                                public void onItemLongClick(View view, int position) {
+                                    //TODO do your own implementaion on long item click
+                                }
+                            });
+
+                            return viewHolder;
+                        }
+
+                    };
+
+
+            mResultList.setAdapter(firebaseRecyclerAdapter);
 
     }
 
