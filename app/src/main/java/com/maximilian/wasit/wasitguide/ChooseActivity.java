@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -38,6 +39,9 @@ public class ChooseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
+
+
+
         String[] str = new String[10];
         localsNames[0]="واسط";
         localsImages[0]=R.drawable.a01;
@@ -49,8 +53,8 @@ public class ChooseActivity extends BaseActivity {
         adapter2 = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item,catigoryNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        BaseActivity.CustomAdapter adapter = new BaseActivity.CustomAdapter();
-        BaseActivity.CustomAdapter2 adapter2 = new BaseActivity.CustomAdapter2();
+        BaseActivity.thinCustomAdapter adapter = new BaseActivity.thinCustomAdapter();
+        BaseActivity.thinCustomAdapter2 adapter2 = new BaseActivity.thinCustomAdapter2();
 
         dSpinner.setAdapter(adapter);
         cSpinner.setAdapter(adapter2);
@@ -105,7 +109,7 @@ public class ChooseActivity extends BaseActivity {
                 int position = dSpinner.getSelectedItemPosition();
                 String distract = localsNames[position];
                 int position2 = cSpinner.getSelectedItemPosition();
-                String category = localsNames[position2];
+                String category = catigoryNames[position2];
 
 
 
@@ -131,5 +135,12 @@ public class ChooseActivity extends BaseActivity {
 
 
 
+    }
+    public void setWindowParams() {
+        WindowManager.LayoutParams wlp = getWindow().getAttributes();
+        wlp.dimAmount = 0;
+        wlp.flags = WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS |
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
+        getWindow().setAttributes(wlp);
     }
 }

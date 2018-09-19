@@ -84,7 +84,7 @@ public class AboutUsActivity extends BaseActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View view = getLayoutInflater().inflate(R.layout.localslayout, null);
+            View view = getLayoutInflater().inflate(R.layout.grid_item, null);
 
             ImageView image = view.findViewById(R.id.localimage);
             TextView Name = view.findViewById(R.id.localNametext);

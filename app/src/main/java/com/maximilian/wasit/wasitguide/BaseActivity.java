@@ -1,11 +1,11 @@
 package com.maximilian.wasit.wasitguide;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,13 +64,13 @@ public class BaseActivity extends AppCompatActivity {
 
 
     String[] catigoryNames = {
-            "المؤسسات الحكومية",
-            "المستشفيات والمراكز الصحية",
-            "محطات الوقود والكراجات",
+            "المؤسسات الرسمية",
+            "المؤسسات الصحية",
+            "الكراجات والوقود",
             "الفنادق والمطاعم",
-            "الاماكن الترفيهية",
-            "الجامعات والمدارس",
-            "المراكز الدينية والسياحية",
+            "الترفيهية والسياحية",
+            "المؤسسات التعليمية",
+
     };
 
 
@@ -81,13 +81,13 @@ public class BaseActivity extends AppCompatActivity {
             R.drawable.s4,
             R.drawable.s5,
             R.drawable.s5,
-            R.drawable.s5,
+
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
 
 //TODO make spinner for choose locals and category
 
@@ -149,7 +149,7 @@ public class BaseActivity extends AppCompatActivity {
 ///////////////////////////////////Custom Adapters for lists ///////////////////////////
 
     class CustomAdapter extends BaseAdapter {
-
+        View view;
 
         @Override
         public int getCount() {
@@ -169,7 +169,45 @@ public class BaseActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View view = getLayoutInflater().inflate(R.layout.localslayout, null);
+                 view = getLayoutInflater().inflate(R.layout.row_item, null);
+
+                 view = getLayoutInflater().inflate(R.layout.grid_item, null);
+
+            ImageView image = view.findViewById(R.id.localimage);
+            TextView Name = view.findViewById(R.id.localNametext);
+
+
+            image.setImageResource(localsImages[position]);
+            Name.setText(localsNames[position]);
+
+
+            return view;
+        }
+    }
+    class thinCustomAdapter extends BaseAdapter {
+        View view;
+
+        @Override
+        public int getCount() {
+            return localsImages.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+                 view = getLayoutInflater().inflate(R.layout.row_item, null);
+
+
 
             ImageView image = view.findViewById(R.id.localimage);
             TextView Name = view.findViewById(R.id.localNametext);
@@ -204,7 +242,42 @@ public class BaseActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View view = getLayoutInflater().inflate(R.layout.localslayout, null);
+            View view = getLayoutInflater().inflate(R.layout.grid_item, null);
+
+            ImageView image = view.findViewById(R.id.localimage);
+            TextView Name = view.findViewById(R.id.localNametext);
+
+
+            image.setImageResource(catigoryImages[position]);
+            Name.setText(catigoryNames[position]);
+
+
+            return view;
+        }
+
+    }
+    class thinCustomAdapter2 extends BaseAdapter {
+
+
+        @Override
+        public int getCount() {
+            return catigoryImages.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            View view = getLayoutInflater().inflate(R.layout.row_item, null);
 
             ImageView image = view.findViewById(R.id.localimage);
             TextView Name = view.findViewById(R.id.localNametext);
