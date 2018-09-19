@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,8 +42,9 @@ public class MainActivity extends BaseActivity {
 
     ImageView forgroundImage;
     ScrollView scrollView;
+    CardView wasitBtn;
     ImageButton getlocalsbtn;
-    ImageView mapImage;
+
     List<Integer> lstImages = new ArrayList<>(); // for slider
     protected GridView categoryList;
 
@@ -54,9 +56,10 @@ public class MainActivity extends BaseActivity {
 
         forgroundImage = findViewById(R.id.forgroundimage);
 
+        wasitBtn = findViewById(R.id.wasitBtn);
         getlocalsbtn = findViewById(R.id.getlocalsbtn);
         scrollView = findViewById(R.id.scrollView3);
-        mapImage = findViewById(R.id.mapimage);
+
 
 //////////////////////////list of category
         categoryList = findViewById(R.id.categoryList);
@@ -73,14 +76,6 @@ public class MainActivity extends BaseActivity {
         Display display = getWindowManager().getDefaultDisplay();
         forgroundImage.animate().translationYBy(-display.getHeight()).setDuration(1000).setStartDelay(3000);
 
-//=====================================image with linke ============================
-
-        mapImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMap("https://goo.gl/maps/Gk7Cqa3dkV22");  // link to wasit map
-            }
-        });
 
 
 //===================================== slider images =============================
@@ -96,7 +91,18 @@ public class MainActivity extends BaseActivity {
         pager.setScrollDuration(200);
 
 
-//=====================================button ============================
+//=====================================wasit btn ============================
+
+        wasitBtn.setOnClickListener(new View.OnClickListener() {  // go to locals activity
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(MainActivity.this, WasitActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        //=====================================button ============================
         getlocalsbtn.setOnClickListener(new View.OnClickListener() {  // go to locals activity
             public void onClick(View view) {
 
@@ -113,7 +119,7 @@ public class MainActivity extends BaseActivity {
             public void onScrollChanged() {
                 if (scrollView != null) {
                     if (scrollView.getChildAt(0).getBottom() <= (scrollView.getHeight() + scrollView.getScrollY())) {
-                        getlocalsbtn.animate().translationY(-50).getStartDelay();
+                        getlocalsbtn.animate().translationY(-25).getStartDelay();
 
                     } else {
                         getlocalsbtn.animate().translationY(600).getStartDelay();
@@ -160,16 +166,7 @@ public class MainActivity extends BaseActivity {
         lstImages.add(R.drawable.kut);
         lstImages.add(R.drawable.city);
     }
-    //=======================================open app ( map app) and go to an custom location==============
-    public void openMap(String uri) {
-        try {
-            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri));
-            intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "خطا!! لايوجد تطبيق للخرائط مثبت على هذا الجهاز او غير مفعل", Toast.LENGTH_SHORT).show();
-        }
-    }
+
 
 
 ///////////////////////////////end main//////////////////////////////////////////

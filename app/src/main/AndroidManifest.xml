@@ -51,15 +51,19 @@
             android:name=".ItemDetailActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".ChooseActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
-
-
-        <activity android:name=".ChooseActivity"
+        <activity android:name=".WasitActivity"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity
+        android:name=".MainActivity"
+        android:launchMode="singleInstance"
+        android:screenOrientation="portrait" />
     </application>
 
 </manifest>

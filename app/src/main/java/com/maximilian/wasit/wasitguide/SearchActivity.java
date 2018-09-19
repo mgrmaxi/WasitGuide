@@ -40,7 +40,7 @@ public class SearchActivity extends BaseActivity {
     private SearchView mSearchField;
     private RecyclerView mResultList;
     private DatabaseReference databaseReference;
-
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +51,10 @@ public class SearchActivity extends BaseActivity {
         String distract = getIntent().getStringExtra("localRef");
         String category = getIntent().getStringExtra("category");
 
-//Log.i("LLLLLLLLLLog Distract",distract.toString());
-//Log.i("LLLLLLLLLLog Distract",category.toString());
-//
+
+        textView= findViewById(R.id.searchIn);
+        textView.setText(" مجال البحث "+category+" في "+distract);
+
           databaseReference = FirebaseDatabase.getInstance().getReference(distract).child(category);
 //TODO
         mSearchField = findViewById(R.id.searchEditText);

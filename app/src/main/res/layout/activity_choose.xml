@@ -11,6 +11,8 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
         android:padding="16dp"
         android:text="اختر مجال البحث"
         android:textColor="@color/colorPrimaryDark"
@@ -47,9 +49,11 @@
 
     <ImageButton
         android:id="@+id/chooseAndGoBtn"
-        android:layout_width="match_parent"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/choose_and_go" />
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/choose_and_go" />
 
 </LinearLayout>
